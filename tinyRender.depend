@@ -1,0 +1,2141 @@
+# depslib dependency file v1.0
+1507019940 source:d:\progs\src\c\tinyrender\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<GL/gl.h>
+	"SDL2/SDL.h"
+	"types.h"
+	"utils.h"
+	"color.h"
+	"render.h"
+	"render_private.h"
+	"fps.h"
+
+1506511795 d:\progs\src\c\tinyrender\include\render.h
+	"types.h"
+	"vector.h"
+	"texture.h"
+
+1502795187 d:\progs\src\c\tinyrender\include\types.h
+	<stdint.h>
+	<stdbool.h>
+
+1506587132 source:d:\progs\src\c\tinyrender\src\render.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<math.h>
+	"SDL2/SDL.h"
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+	"utils.h"
+	"matrix.h"
+	"draw.h"
+	"render.h"
+	"render_private.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\begin_code.h
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\close_code.h
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1505829433 source:d:\progs\src\c\tinyrender\src\color.c
+	"SDL2/SDL.h"
+	"color.h"
+	"utils.h"
+
+1506446692 d:\progs\src\c\tinyrender\include\color.h
+	"types.h"
+	"render_private.h"
+
+1506593373 d:\progs\src\c\tinyrender\include\utils.h
+	"SDL2/SDL_stdinc.h"
+	"types.h"
+	"color.h"
+	"vector.h"
+	"libfixmath/fixmath.h"
+
+1506443444 d:\progs\src\c\tinyrender\include\vector.h
+	"types.h"
+
+1506596276 source:d:\progs\src\c\tinyrender\src\utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"utils.h"
+	"defines.h"
+
+1505377884 d:\progs\src\c\tinyrender\include\defines.h
+
+1506013897 source:d:\progs\src\c\tinyrender\src\vector.c
+	"SDL2/SDL.h"
+	"vector.h"
+
+1506596327 source:d:\progs\src\c\tinyrender\src\draw.c
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<malloc.h>
+	"libfixmath/fixmath.h"
+	"draw.h"
+	"utils.h"
+	"render_private.h"
+
+1506593624 d:\progs\src\c\tinyrender\include\draw.h
+	<stdio.h>
+	"SDL2/SDL.h"
+	"types.h"
+	"texture.h"
+
+1506587110 d:\progs\src\c\tinyrender\include\render_private.h
+	"SDL2/SDL.h"
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+	"matrix.h"
+
+1505829433 source:b:\mein_docs\my_progs\c\tinyrender\src\color.c
+	"SDL2/SDL.h"
+	"color.h"
+	"utils.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1504601040 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\begin_code.h
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\close_code.h
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1504601020 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1476935894 b:\mein_docs\my_progs\c\tinyrender\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506446692 b:\mein_docs\my_progs\c\tinyrender\include\color.h
+	"types.h"
+	"render_private.h"
+
+1502795187 b:\mein_docs\my_progs\c\tinyrender\include\types.h
+	<stdint.h>
+	<stdbool.h>
+
+1506013160 b:\mein_docs\my_progs\c\tinyrender\include\render_private.h
+	"SDL2/SDL.h"
+	"matrix.h"
+
+1506078785 b:\mein_docs\my_progs\c\tinyrender\include\utils.h
+	"types.h"
+	"color.h"
+	"vector.h"
+	"SDL2/SDL_stdinc.h"
+
+1506443444 b:\mein_docs\my_progs\c\tinyrender\include\vector.h
+	"types.h"
+
+1506446172 source:b:\mein_docs\my_progs\c\tinyrender\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<GL/gl.h>
+	"SDL2/SDL.h"
+	"types.h"
+	"utils.h"
+	"color.h"
+	"render.h"
+	"render_private.h"
+	"fps.h"
+
+1506163043 b:\mein_docs\my_progs\c\tinyrender\include\render.h
+	"types.h"
+	"vector.h"
+	"texture.h"
+
+1506445385 source:b:\mein_docs\my_progs\c\tinyrender\src\render.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"SDL2/SDL.h"
+	"utils.h"
+	"matrix.h"
+	"draw.h"
+	"render.h"
+
+1506333758 b:\mein_docs\my_progs\c\tinyrender\include\draw.h
+	<stdio.h>
+	"SDL2/SDL.h"
+	"types.h"
+	"texture.h"
+
+1506013897 source:b:\mein_docs\my_progs\c\tinyrender\src\vector.c
+	"SDL2/SDL.h"
+	"vector.h"
+
+1506446646 source:b:\mein_docs\my_progs\c\tinyrender\src\draw.c
+	<stdlib.h>
+	<string.h>
+	"draw.h"
+	"utils.h"
+	"render_private.h"
+
+1506080010 source:b:\mein_docs\my_progs\c\tinyrender\src\utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"utils.h"
+	"defines.h"
+
+1505377884 b:\mein_docs\my_progs\c\tinyrender\include\defines.h
+
+1505811024 d:\progs\src\c\tinyrender\include\matrix.h
+	"vector.h"
+
+1506510711 source:d:\progs\src\c\tinyrender\src\matrix.c
+	<string.h>
+	<math.h>
+	"SDL2/SDL_stdinc.h"
+	"matrix.h"
+	"types.h"
+
+1505811024 b:\mein_docs\my_progs\c\tinyrender\include\matrix.h
+	"vector.h"
+
+1505808434 source:b:\mein_docs\my_progs\c\tinyrender\src\matrix.c
+	<string.h>
+	<math.h>
+	"matrix.h"
+	"types.h"
+
+1506149904 b:\mein_docs\my_progs\c\tinyrender\include\texture.h
+	"types.h"
+
+1506150408 source:b:\mein_docs\my_progs\c\tinyrender\src\texture.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"texture.h"
+	"utils.h"
+	"render_private.h"
+
+1506229932 source:b:\mein_docs\my_progs\c\tinyrender\src\fps.c
+	<stdio.h>
+	"SDL2/SDL.h"
+	"fps.h"
+
+1506229527 b:\mein_docs\my_progs\c\tinyrender\include\fps.h
+	"types.h"
+
+1506149904 d:\progs\src\c\tinyrender\include\texture.h
+	"types.h"
+
+1506229932 source:d:\progs\src\c\tinyrender\src\fps.c
+	<stdio.h>
+	"SDL2/SDL.h"
+	"fps.h"
+
+1506229527 d:\progs\src\c\tinyrender\include\fps.h
+	"types.h"
+
+1506150408 source:d:\progs\src\c\tinyrender\src\texture.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"texture.h"
+	"utils.h"
+	"render_private.h"
+
+1502208928 d:\progs\src\c\tinyrender\include\libfixmath\fixmath.h
+	"uint32.h"
+	"int64.h"
+	"fract32.h"
+	"fix16.h"
+
+1502208928 d:\progs\src\c\tinyrender\include\libfixmath\uint32.h
+	<stdint.h>
+
+1502208928 d:\progs\src\c\tinyrender\include\libfixmath\int64.h
+
+1502208928 d:\progs\src\c\tinyrender\include\libfixmath\fract32.h
+	<stdint.h>
+
+1506487155 d:\progs\src\c\tinyrender\include\libfixmath\fix16.h
+	<stdint.h>
+	"fix16.hpp"
+
+1506486663 source:d:\progs\src\c\tinyrender\include\libfixmath\fix16.c
+	"fix16.h"
+	"int64.h"
+
+1502208928 source:d:\progs\src\c\tinyrender\include\libfixmath\fix16_exp.c
+	"fix16.h"
+	<stdbool.h>
+
+1502208928 source:d:\progs\src\c\tinyrender\include\libfixmath\fix16_sqrt.c
+	"fix16.h"
+
+1502208928 source:d:\progs\src\c\tinyrender\include\libfixmath\fix16_str.c
+	"fix16.h"
+	<stdbool.h>
+	<ctype.h>
+
+1502208928 source:d:\progs\src\c\tinyrender\include\libfixmath\fix16_trig.c
+	<limits.h>
+	"fix16.h"
+	"fix16_trig_sin_lut.h"
+
+1502208928 d:\progs\src\c\tinyrender\include\libfixmath\fix16_trig_sin_lut.h
+
+1502208928 source:d:\progs\src\c\tinyrender\include\libfixmath\fract32.c
+	"fract32.h"
+
+1502208928 source:d:\progs\src\c\tinyrender\include\libfixmath\uint32.c
+	"uint32.h"
+
+1506511226 source:d:\progs\src\c\tinyrender\include\threadpool\threadpool.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+
+1506510509 d:\progs\src\c\tinyrender\include\threadpool\threadpool.h
+
+1506511396 d:\progs\src\c\tinyrender\include\tinycthread\tinycthread.h
+	<time.h>
+	<pthread.h>
+	<windows.h>
+
+1506511330 source:d:\progs\src\c\tinyrender\include\tinycthread\tinycthread.c
+	"tinycthread/tinycthread.h"
+	<stdlib.h>
+	<signal.h>
+	<sched.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<process.h>
+	<sys/timeb.h>
+
+1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506511226 source:d:\progs\src\c\tinyrender_sdl2\include\threadpool\threadpool.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+
+1506510509 d:\progs\src\c\tinyrender_sdl2\include\threadpool\threadpool.h
+
+1506511396 d:\progs\src\c\tinyrender_sdl2\include\tinycthread\tinycthread.h
+	<time.h>
+	<pthread.h>
+	<windows.h>
+
+1506511330 source:d:\progs\src\c\tinyrender_sdl2\include\tinycthread\tinycthread.c
+	"tinycthread/tinycthread.h"
+	<stdlib.h>
+	<signal.h>
+	<sched.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<process.h>
+	<sys/timeb.h>
+
+1505829433 source:d:\progs\src\c\tinyrender_sdl2\src\color.c
+	"SDL2/SDL.h"
+	"color.h"
+	"utils.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\begin_code.h
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\close_code.h
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl2\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506446692 d:\progs\src\c\tinyrender_sdl2\include\color.h
+	"types.h"
+	"render_private.h"
+
+1502795187 d:\progs\src\c\tinyrender_sdl2\include\types.h
+	<stdint.h>
+	<stdbool.h>
+
+1506587110 d:\progs\src\c\tinyrender_sdl2\include\render_private.h
+	"SDL2/SDL.h"
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+	"matrix.h"
+
+1505811024 d:\progs\src\c\tinyrender_sdl2\include\matrix.h
+	"vector.h"
+
+1506443444 d:\progs\src\c\tinyrender_sdl2\include\vector.h
+	"types.h"
+
+1506593373 d:\progs\src\c\tinyrender_sdl2\include\utils.h
+	"SDL2/SDL_stdinc.h"
+	"types.h"
+	"color.h"
+	"vector.h"
+	"libfixmath/fixmath.h"
+
+1502208928 d:\progs\src\c\tinyrender_sdl2\include\libfixmath\fixmath.h
+	"uint32.h"
+	"int64.h"
+	"fract32.h"
+	"fix16.h"
+
+1502208928 d:\progs\src\c\tinyrender_sdl2\include\libfixmath\uint32.h
+	<stdint.h>
+
+1502208928 d:\progs\src\c\tinyrender_sdl2\include\libfixmath\int64.h
+
+1502208928 d:\progs\src\c\tinyrender_sdl2\include\libfixmath\fract32.h
+	<stdint.h>
+
+1506487155 d:\progs\src\c\tinyrender_sdl2\include\libfixmath\fix16.h
+	<stdint.h>
+	"fix16.hpp"
+
+1506596327 source:d:\progs\src\c\tinyrender_sdl2\src\draw.c
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<malloc.h>
+	"libfixmath/fixmath.h"
+	"draw.h"
+	"utils.h"
+	"render_private.h"
+
+1506593624 d:\progs\src\c\tinyrender_sdl2\include\draw.h
+	<stdio.h>
+	"SDL2/SDL.h"
+	"types.h"
+	"texture.h"
+
+1506149904 d:\progs\src\c\tinyrender_sdl2\include\texture.h
+	"types.h"
+
+1507025538 source:d:\progs\src\c\tinyrender_sdl2\src\fps.c
+	<stdio.h>
+	"SDL2/SDL.h"
+	"fps.h"
+
+1507025444 d:\progs\src\c\tinyrender_sdl2\include\fps.h
+	"types.h"
+
+1506510711 source:d:\progs\src\c\tinyrender_sdl2\src\matrix.c
+	<string.h>
+	<math.h>
+	"SDL2/SDL_stdinc.h"
+	"matrix.h"
+	"types.h"
+
+1507023359 source:d:\progs\src\c\tinyrender_sdl2\src\render.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<math.h>
+	"SDL2/SDL.h"
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+	"utils.h"
+	"matrix.h"
+	"draw.h"
+	"render.h"
+	"render_private.h"
+
+1506511795 d:\progs\src\c\tinyrender_sdl2\include\render.h
+	"types.h"
+	"vector.h"
+	"texture.h"
+
+1506150408 source:d:\progs\src\c\tinyrender_sdl2\src\texture.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"texture.h"
+	"utils.h"
+	"render_private.h"
+
+1506596276 source:d:\progs\src\c\tinyrender_sdl2\src\utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"utils.h"
+	"defines.h"
+
+1505377884 d:\progs\src\c\tinyrender_sdl2\include\defines.h
+
+1506013897 source:d:\progs\src\c\tinyrender_sdl2\src\vector.c
+	"SDL2/SDL.h"
+	"vector.h"
+
+1507025322 source:d:\progs\src\c\tinyrender_sdl2\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<GL/gl.h>
+	"SDL2/SDL.h"
+	"types.h"
+	"utils.h"
+	"color.h"
+	"render.h"
+	"render_private.h"
+	"fps.h"
+
+1506511226 source:d:\progs\src\c\tinyrender_sdl\include\threadpool\threadpool.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+
+1506510509 d:\progs\src\c\tinyrender_sdl\include\threadpool\threadpool.h
+
+1506511396 d:\progs\src\c\tinyrender_sdl\include\tinycthread\tinycthread.h
+	<time.h>
+	<pthread.h>
+	<windows.h>
+
+1506511330 source:d:\progs\src\c\tinyrender_sdl\include\tinycthread\tinycthread.c
+	"tinycthread/tinycthread.h"
+	<stdlib.h>
+	<signal.h>
+	<sched.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<process.h>
+	<sys/timeb.h>
+
+1507192155 source:d:\progs\src\c\tinyrender_sdl\src\color.c
+	"color.h"
+	"utils.h"
+
+1506446692 d:\progs\src\c\tinyrender_sdl\include\color.h
+	"types.h"
+	"render_private.h"
+
+1502795187 d:\progs\src\c\tinyrender_sdl\include\types.h
+	<stdint.h>
+	<stdbool.h>
+
+1507192874 d:\progs\src\c\tinyrender_sdl\include\render_private.h
+	"SDL/SDL.h"
+	"SDL2/SDL.h"
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+	"matrix.h"
+
+1507026968 d:\progs\src\c\tinyrender_sdl\include\matrix.h
+	"vector.h"
+
+1506443444 d:\progs\src\c\tinyrender_sdl\include\vector.h
+	"types.h"
+
+1507026897 d:\progs\src\c\tinyrender_sdl\include\utils.h
+	<math.h>
+	"types.h"
+	"color.h"
+	"vector.h"
+	"libfixmath/fixmath.h"
+
+1502208928 d:\progs\src\c\tinyrender_sdl\include\libfixmath\fixmath.h
+	"uint32.h"
+	"int64.h"
+	"fract32.h"
+	"fix16.h"
+
+1502208928 d:\progs\src\c\tinyrender_sdl\include\libfixmath\uint32.h
+	<stdint.h>
+
+1502208928 d:\progs\src\c\tinyrender_sdl\include\libfixmath\int64.h
+
+1502208928 d:\progs\src\c\tinyrender_sdl\include\libfixmath\fract32.h
+	<stdint.h>
+
+1506487155 d:\progs\src\c\tinyrender_sdl\include\libfixmath\fix16.h
+	<stdint.h>
+	"fix16.hpp"
+
+1507202373 source:d:\progs\src\c\tinyrender_sdl\src\draw.c
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<malloc.h>
+	"libfixmath/fixmath.h"
+	"draw.h"
+	"utils.h"
+	"render_private.h"
+
+1507192155 d:\progs\src\c\tinyrender_sdl\include\draw.h
+	<stdio.h>
+	"SDL/SDL.h"
+	"SDL2/SDL.h"
+	"types.h"
+	"texture.h"
+
+1506149904 d:\progs\src\c\tinyrender_sdl\include\texture.h
+	"types.h"
+
+1507192134 source:d:\progs\src\c\tinyrender_sdl\src\fps.c
+	<stdio.h>
+	"SDL/SDL.h"
+	"SDL2/SDL.h"
+	"fps.h"
+
+1507025444 d:\progs\src\c\tinyrender_sdl\include\fps.h
+	"types.h"
+
+1507026984 source:d:\progs\src\c\tinyrender_sdl\src\matrix.c
+	<string.h>
+	<math.h>
+	"matrix.h"
+	"types.h"
+	"utils.h"
+
+1507192506 source:d:\progs\src\c\tinyrender_sdl\src\render.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<math.h>
+	"SDL/SDL.h"
+	"SDL2/SDL.h"
+	"threadpool/threadpool.h"
+	"tinycthread/tinycthread.h"
+	"utils.h"
+	"matrix.h"
+	"draw.h"
+	"render.h"
+	"render_private.h"
+
+1506511795 d:\progs\src\c\tinyrender_sdl\include\render.h
+	"types.h"
+	"vector.h"
+	"texture.h"
+
+1507192155 source:d:\progs\src\c\tinyrender_sdl\src\texture.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL/SDL.h"
+	"SDL2/SDL.h"
+	"texture.h"
+	"utils.h"
+	"render_private.h"
+
+1507192125 source:d:\progs\src\c\tinyrender_sdl\src\utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL/SDL.h"
+	"SDL2/SDL.h"
+	"utils.h"
+	"defines.h"
+
+1505377884 d:\progs\src\c\tinyrender_sdl\include\defines.h
+
+1507192155 source:d:\progs\src\c\tinyrender_sdl\src\vector.c
+	"vector.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326110988 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_platform.h
+
+1326110994 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326111000 d:\progs\src\c\tinyrender_sdl\include\sdl\begin_code.h
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\close_code.h
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_keysym.h
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1507197749 source:d:\progs\src\c\tinyrender_sdl\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	"types.h"
+	"utils.h"
+	"color.h"
+	"render.h"
+	"render_private.h"
+	"fps.h"
+	"SDL/SDL.h"
+	"SDL2/SDL.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\begin_code.h
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\close_code.h
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106370 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1506106372 d:\progs\src\c\tinyrender_sdl\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
