@@ -10,27 +10,27 @@
 #include "utils.h"
 #include "render_private.h"
 
-// граница рисования горизонтальной линии
+// РіСЂР°РЅРёС†Р° СЂРёСЃРѕРІР°РЅРёСЏ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕР№ Р»РёРЅРёРё
 typedef struct
 {
     int32 x0, x1;
 } SBorderBit;
 
-// граница рисования горизонтальной линии с градацией цвета
+// РіСЂР°РЅРёС†Р° СЂРёСЃРѕРІР°РЅРёСЏ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕР№ Р»РёРЅРёРё СЃ РіСЂР°РґР°С†РёРµР№ С†РІРµС‚Р°
 typedef struct
 {
     int32 x0, x1;
     uint32 color0, color1;
 } SBorderBitColor;
 
-// граница рисования горизонтальной линии с градацией текстурной координаты
+// РіСЂР°РЅРёС†Р° СЂРёСЃРѕРІР°РЅРёСЏ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕР№ Р»РёРЅРёРё СЃ РіСЂР°РґР°С†РёРµР№ С‚РµРєСЃС‚СѓСЂРЅРѕР№ РєРѕРѕСЂРґРёРЅР°С‚С‹
 typedef struct
 {
     int32 x0, x1;
     SVector2f uv0, uv1;
 } SBorderBitUV;
 
-// аргументы для многопоточного рендеринга
+// Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ РјРЅРѕРіРѕРїРѕС‚РѕС‡РЅРѕРіРѕ СЂРµРЅРґРµСЂРёРЅРіР°
 typedef struct
 {
     void* pixels;
@@ -42,8 +42,8 @@ typedef struct
     int toY;
 } SThreadArgs;
 
-static int renderTask = 0;  // количество задач для рендеринга
-static int renderDone = 0;  // количество завершенных задач
+static int renderTask = 0;  // РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РґР°С‡ РґР»СЏ СЂРµРЅРґРµСЂРёРЅРіР°
+static int renderDone = 0;  // РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РІРµСЂС€РµРЅРЅС‹С… Р·Р°РґР°С‡
 
 
 void DrawLine(int32 x0, int32 y0, int32 x1, int32 y1, uint32 color, void* pixels)
@@ -130,7 +130,7 @@ void DrawLineBicolor (int32 x0, int32 y0, int32 x1, int32 y1, uint32 color0, uin
     int16 dG = GreenFromRGB(color1) - g;
     int16 dB = BlueFromRGB(color1)  - b;
 
-    // шаг цветовой интерполяции
+    // С€Р°Рі С†РІРµС‚РѕРІРѕР№ РёРЅС‚РµСЂРїРѕР»СЏС†РёРё
     double rDiff = dR * lenInverse;
     double gDiff = dG * lenInverse;
     double bDiff = dB * lenInverse;
@@ -169,8 +169,8 @@ static void DrawHorLineColor(int32 x0, int32 x1, int32 y, uint32 color, void* pi
 
 static void DrawHorLineBicolor(int32 x0, int32 x1, int32 y, uint32 color0, uint32 color1, void* pixels)
 {
-    // что быстрее???
-    // ЭТО
+    // С‡С‚Рѕ Р±С‹СЃС‚СЂРµРµ???
+    // Р­РўРћ
     if (y < 0 || y > trHeight - 1)
         return;
 
@@ -201,13 +201,13 @@ static void DrawHorLineBicolor(int32 x0, int32 x1, int32 y, uint32 color0, uint3
     int dG = GreenFromRGB(color1) - g;
     int dB = BlueFromRGB(color1)  - b;
 
-    // шаг цветовой интерполяции
+    // С€Р°Рі С†РІРµС‚РѕРІРѕР№ РёРЅС‚РµСЂРїРѕР»СЏС†РёРё
     register double rDiff = dR * lenInverse;
     register double gDiff = dG * lenInverse;
     register double bDiff = dB * lenInverse;
 
-    // проходимся до предпоследнего пикселя, потому что при добавлении к компоненту (r += diffR)
-    // цвет может выехать за последний цвет
+    // РїСЂРѕС…РѕРґРёРјСЃСЏ РґРѕ РїСЂРµРґРїРѕСЃР»РµРґРЅРµРіРѕ РїРёРєСЃРµР»СЏ, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РїСЂРё РґРѕР±Р°РІР»РµРЅРёРё Рє РєРѕРјРїРѕРЅРµРЅС‚Сѓ (r += diffR)
+    // С†РІРµС‚ РјРѕР¶РµС‚ РІС‹РµС…Р°С‚СЊ Р·Р° РїРѕСЃР»РµРґРЅРёР№ С†РІРµС‚
     for (register int x = x0; x < x1; ++x, p += trBpp)
     {
         _r = r;
@@ -232,7 +232,7 @@ static void DrawHorLineBicolor(int32 x0, int32 x1, int32 y, uint32 color0, uint3
         b += bDiff;
     }
 
-    // последний пиксель
+    // РїРѕСЃР»РµРґРЅРёР№ РїРёРєСЃРµР»СЊ
     *(int*)p = color1;
 }
 
@@ -261,11 +261,11 @@ static void DrawHorLineTextured(int32 x0, int32 x1, int32 y, SVector2f uv0, SVec
     register int texPitch = texture->pitch;
     register uint8* texPixels = texture->pixels;
 
-    // если строка/колонка текстуры не изменилась, то зачем пересчитывать?
+    // РµСЃР»Рё СЃС‚СЂРѕРєР°/РєРѕР»РѕРЅРєР° С‚РµРєСЃС‚СѓСЂС‹ РЅРµ РёР·РјРµРЅРёР»Р°СЃСЊ, С‚Рѕ Р·Р°С‡РµРј РїРµСЂРµСЃС‡РёС‚С‹РІР°С‚СЊ?
     register uint8* texCol = texPixels;
     register int texRow = 0;
 
-    // проход
+    // РїСЂРѕС…РѕРґ
     for (register int x = x0; x <= x1; ++x, p += trBpp)
     {
         u = uv.x * texW;
@@ -356,7 +356,7 @@ static void DrawBorderBitColor(int32 x0, int32 y0, int32 x1, int32 y1, uint32 co
     int16 dG = GreenFromRGB(color1) - g;
     int16 dB = BlueFromRGB(color1)  - b;
 
-    // шаг цветовой интерполяции
+    // С€Р°Рі С†РІРµС‚РѕРІРѕР№ РёРЅС‚РµСЂРїРѕР»СЏС†РёРё
     register double rDiff = dR * lenInverse;
     register double gDiff = dG * lenInverse;
     register double bDiff = dB * lenInverse;
@@ -456,7 +456,7 @@ static void DrawBorderBitUV(int x0, int y0, int x1, int y1, SVector2f uv0, SVect
     }
 }
 
-// поток для рисования одноцветных горизонтальных линий
+// РїРѕС‚РѕРє РґР»СЏ СЂРёСЃРѕРІР°РЅРёСЏ РѕРґРЅРѕС†РІРµС‚РЅС‹С… РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹С… Р»РёРЅРёР№
 static void thrd_DrawBorderColor(void* arguments)
 {
     SThreadArgs* args = arguments;
@@ -477,7 +477,7 @@ static void thrd_DrawBorderColor(void* arguments)
     mtx_unlock(&renderLock);
 }
 
-// рисует одноцветный полигон по инфе из borders, разделяя рендеринг на потоки
+// СЂРёСЃСѓРµС‚ РѕРґРЅРѕС†РІРµС‚РЅС‹Р№ РїРѕР»РёРіРѕРЅ РїРѕ РёРЅС„Рµ РёР· borders, СЂР°Р·РґРµР»СЏСЏ СЂРµРЅРґРµСЂРёРЅРі РЅР° РїРѕС‚РѕРєРё
 static void DrawPolyColor(SBorderBit* borders, void* pixels, uint32 color, int minX, int minY, int bufHeight)
 {
     SThreadArgs args0 = { pixels, borders, color, NULL, minX, minY, 0, bufHeight };
@@ -529,7 +529,7 @@ static void DrawPolyColor(SBorderBit* borders, void* pixels, uint32 color, int m
         threadpool_add(threadPool, thrd_DrawBorderColor, &args6, 0);
         threadpool_add(threadPool, thrd_DrawBorderColor, &args7, 0);
     }
-    else    // маленькие изображения рисовать в один поток
+    else    // РјР°Р»РµРЅСЊРєРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЂРёСЃРѕРІР°С‚СЊ РІ РѕРґРёРЅ РїРѕС‚РѕРє
     {
         renderTask = 1;
         threadpool_add(threadPool, thrd_DrawBorderColor, &args0, 0);
@@ -543,7 +543,7 @@ static void DrawPolyColor(SBorderBit* borders, void* pixels, uint32 color, int m
     }
 }
 
-// поток для рисования градиентных горизонтальных линий
+// РїРѕС‚РѕРє РґР»СЏ СЂРёСЃРѕРІР°РЅРёСЏ РіСЂР°РґРёРµРЅС‚РЅС‹С… РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹С… Р»РёРЅРёР№
 static void thrd_DrawBorderGradient(void* arguments)
 {
     SThreadArgs* args = arguments;
@@ -563,7 +563,7 @@ static void thrd_DrawBorderGradient(void* arguments)
     mtx_unlock(&renderLock);
 }
 
-// рисует затекстурированный полигон по инфе из borders, разделяя рендеринг на потоки
+// СЂРёСЃСѓРµС‚ Р·Р°С‚РµРєСЃС‚СѓСЂРёСЂРѕРІР°РЅРЅС‹Р№ РїРѕР»РёРіРѕРЅ РїРѕ РёРЅС„Рµ РёР· borders, СЂР°Р·РґРµР»СЏСЏ СЂРµРЅРґРµСЂРёРЅРі РЅР° РїРѕС‚РѕРєРё
 static void DrawPolyGradient(SBorderBitColor* borders, void* pixels, int minX, int minY, int bufHeight)
 {
     SThreadArgs args0 = { pixels, borders, 0, NULL, minX, minY, 0, bufHeight };
@@ -615,7 +615,7 @@ static void DrawPolyGradient(SBorderBitColor* borders, void* pixels, int minX, i
         threadpool_add(threadPool, thrd_DrawBorderGradient, &args6, 0);
         threadpool_add(threadPool, thrd_DrawBorderGradient, &args7, 0);
     }
-    else    // маленькие изображения рисовать в один поток
+    else    // РјР°Р»РµРЅСЊРєРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЂРёСЃРѕРІР°С‚СЊ РІ РѕРґРёРЅ РїРѕС‚РѕРє
     {
         renderTask = 1;
         threadpool_add(threadPool, thrd_DrawBorderGradient, &args0, 0);
@@ -629,7 +629,7 @@ static void DrawPolyGradient(SBorderBitColor* borders, void* pixels, int minX, i
     }
 }
 
-// поток для рисования текстурированных горизонтальных линий
+// РїРѕС‚РѕРє РґР»СЏ СЂРёСЃРѕРІР°РЅРёСЏ С‚РµРєСЃС‚СѓСЂРёСЂРѕРІР°РЅРЅС‹С… РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹С… Р»РёРЅРёР№
 static void thrd_DrawBorderTextured (void* arguments)
 {
     SThreadArgs* args = arguments;
@@ -650,7 +650,7 @@ static void thrd_DrawBorderTextured (void* arguments)
     mtx_unlock(&renderLock);
 }
 
-// рисует затекстурированный полигон по инфе из borders, разделяя рендеринг на потоки
+// СЂРёСЃСѓРµС‚ Р·Р°С‚РµРєСЃС‚СѓСЂРёСЂРѕРІР°РЅРЅС‹Р№ РїРѕР»РёРіРѕРЅ РїРѕ РёРЅС„Рµ РёР· borders, СЂР°Р·РґРµР»СЏСЏ СЂРµРЅРґРµСЂРёРЅРі РЅР° РїРѕС‚РѕРєРё
 static void DrawPolyTextured(SBorderBitUV* borders, STexture* texture, void* pixels, int minX, int minY, int bufHeight)
 {
     SThreadArgs args0 = { pixels, borders, 0, texture, minX, minY, 0, bufHeight };
@@ -702,7 +702,7 @@ static void DrawPolyTextured(SBorderBitUV* borders, STexture* texture, void* pix
         threadpool_add(threadPool, thrd_DrawBorderTextured, &args6, 0);
         threadpool_add(threadPool, thrd_DrawBorderTextured, &args7, 0);
     }
-    else    // маленькие изображения рисовать в один поток
+    else    // РјР°Р»РµРЅСЊРєРёРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ СЂРёСЃРѕРІР°С‚СЊ РІ РѕРґРёРЅ РїРѕС‚РѕРє
     {
         renderTask = 1;
         threadpool_add(threadPool, thrd_DrawBorderTextured, &args0, 0);
@@ -766,7 +766,7 @@ void DrawTriangleColor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y
 #endif
     SBorderBit* p = borders;
 
-    // обнуляем границы
+    // РѕР±РЅСѓР»СЏРµРј РіСЂР°РЅРёС†С‹
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
@@ -782,16 +782,16 @@ void DrawTriangleColor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y
     int startX, endX;
     for (register int j = 0; j < bufHeight; ++j)
     {
-        // ищем точку начала линии и конца
+        // РёС‰РµРј С‚РѕС‡РєСѓ РЅР°С‡Р°Р»Р° Р»РёРЅРёРё Рё РєРѕРЅС†Р°
         startX = p->x0;
         endX   = p->x1;
 
         if (startX != -1)
         {
-            // если концы совпали, то просто поставить точку
+            // РµСЃР»Рё РєРѕРЅС†С‹ СЃРѕРІРїР°Р»Рё, С‚Рѕ РїСЂРѕСЃС‚Рѕ РїРѕСЃС‚Р°РІРёС‚СЊ С‚РѕС‡РєСѓ
             if (startX == endX)
                 PutPixel(startX + minX, j + minY, color, pixels);
-            // а иначе нарисовать линию
+            // Р° РёРЅР°С‡Рµ РЅР°СЂРёСЃРѕРІР°С‚СЊ Р»РёРЅРёСЋ
             else
                 DrawHorLineColor(startX + minX, endX + minX, j + minY, color, pixels);
         }
@@ -827,7 +827,7 @@ void DrawTriangleTricolor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int3
 #endif
     SBorderBitColor* p = borders;
 
-    // обнуляем границы
+    // РѕР±РЅСѓР»СЏРµРј РіСЂР°РЅРёС†С‹
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
@@ -866,7 +866,7 @@ void DrawTriangleTextured(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int3
 #endif
     SBorderBitUV* p = borders;
 
-    // обнуляем границы
+    // РѕР±РЅСѓР»СЏРµРј РіСЂР°РЅРёС†С‹
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
@@ -913,7 +913,7 @@ void DrawQuadColor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y2, i
 #endif
     SBorderBit* p = borders;
 
-    // обнуляем границы
+    // РѕР±РЅСѓР»СЏРµРј РіСЂР°РЅРёС†С‹
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
@@ -929,16 +929,16 @@ void DrawQuadColor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y2, i
     int startX, endX;
     for (register int j = 0; j < bufHeight; ++j)
     {
-        // ищем точку начала линии и конца
+        // РёС‰РµРј С‚РѕС‡РєСѓ РЅР°С‡Р°Р»Р° Р»РёРЅРёРё Рё РєРѕРЅС†Р°
         startX = p->x0;
         endX   = p->x1;
 
         if (startX != -1)
         {
-            // если концы совпали, то просто поставить точку
+            // РµСЃР»Рё РєРѕРЅС†С‹ СЃРѕРІРїР°Р»Рё, С‚Рѕ РїСЂРѕСЃС‚Рѕ РїРѕСЃС‚Р°РІРёС‚СЊ С‚РѕС‡РєСѓ
             if (startX == endX)
                 PutPixel(startX + minX, j + minY, color, pixels);
-            // а иначе нарисовать линию
+            // Р° РёРЅР°С‡Рµ РЅР°СЂРёСЃРѕРІР°С‚СЊ Р»РёРЅРёСЋ
             else
                 DrawHorLineColor(startX + minX, endX + minX, j + minY, color, pixels);
         }
@@ -978,7 +978,7 @@ void DrawQuadFourcolor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y
 #endif
     SBorderBitColor* p = borders;
 
-    // обнуляем границы
+    // РѕР±РЅСѓР»СЏРµРј РіСЂР°РЅРёС†С‹
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
@@ -1024,7 +1024,7 @@ void DrawQuadTextured(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y2
 #endif
     SBorderBitUV* p = borders;
 
-    // обнуляем границы
+    // РѕР±РЅСѓР»СЏРµРј РіСЂР°РЅРёС†С‹
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
@@ -1087,3 +1087,4 @@ uint32 GetPixel_(uint32 x, uint32 y, void* pixels)
 
     return *(uint32*)((uint8*)pixels + y * trPitch + x * trBpp);
 }
+

@@ -36,3 +36,4 @@ void ClearPixels(uint32 color, int w, int h, void* pixels);
 void PutPixel(int32 x, int32 y, uint32 color, void* pixels);
 //Performs simple conversions to prepare a surface for accessing pixels
 uint32 GetPixel_(uint32 x, uint32 y, void* pixels);
+

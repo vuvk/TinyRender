@@ -158,3 +158,4 @@ void StrCopy(char* dst, const char* src, uint32 maxLength);
 int32 StrLength(const char* string);
 
 bool FileExist(const char* fileName);
+

@@ -34,7 +34,7 @@ void trRotateXf(float angle);
 void trRotateYf(float angle);
 void trRotateZf(float angle);
 
-/* перемножает мировую матрицу и матрицу перспективную */
+/* РїРµСЂРµРјРЅРѕР¶Р°РµС‚ РјРёСЂРѕРІСѓСЋ РјР°С‚СЂРёС†Сѓ Рё РјР°С‚СЂРёС†Сѓ РїРµСЂСЃРїРµРєС‚РёРІРЅСѓСЋ */
 void trTransformsPrepare();
 
 /* DRAWING */
@@ -99,3 +99,4 @@ void trQuadTexture3f(float x0, float y0, float z0, float x1, float y1, float z1,
 void trQuadTexture3fv(float*  v0, float*  v1, float*  v2, float*  v3,
                       float* uv0, float* uv1, float* uv2, float* uv3,
                       STexture* texture);
+

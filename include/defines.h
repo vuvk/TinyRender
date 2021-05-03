@@ -36,7 +36,7 @@
 #define MAX_TEXTURE_WIDTH  1024
 #define MAX_TEXTURE_HEIGHT 1024
 
-#define EPSILON 0.01  // погрешность. Некое число, близкое к 0
+#define EPSILON 0.01  // РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ. РќРµРєРѕРµ С‡РёСЃР»Рѕ, Р±Р»РёР·РєРѕРµ Рє 0
 
 #define FOV   60.0
 #define FOV_2 30.0
@@ -50,3 +50,4 @@
     #define _FONT_DEBUG
     #define _TEXT_DEBUG
 #endif // DEBUG
+

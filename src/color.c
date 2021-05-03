@@ -347,3 +347,4 @@ uint8 BlueFromRGB(uint32 color)
 
     return retVal;
 }
+

@@ -1,4 +1,4 @@
-﻿/*
+/*
 	It's part of bodhi GameEngine.
     Copyright (C) 2017 Anton "Vuvk" Shcherbatykh
 
@@ -175,3 +175,4 @@ typedef float SQ2Vector3f[3];
 #define Q2VectorClear(a) (a[0] = a[1] = a[2] = 0)
 SVector3f Vector3fToQ2Vector3f(const SVector3f vec);    // change axis to Q2-style
 SVector3f Q2Vector3fToVector3f(const SVector3f vec);    // change axis from Q2-style
+

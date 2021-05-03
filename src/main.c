@@ -67,7 +67,7 @@ int main(int args, char** argv)
         trTransformsPrepare();
 
 
-        // 2D рисование одноцветное
+        // 2D СЂРёСЃРѕРІР°РЅРёРµ РѕРґРЅРѕС†РІРµС‚РЅРѕРµ
 
         trTriangleColor2i(10, 10, 790, 10, 10, 590, RGB_TO_COLOR(0, 255, 100));
         trTriangleColor2i(10, 590, 790, 590, 10, 10, RGB_TO_COLOR(255, 255, 100));
@@ -81,7 +81,7 @@ int main(int args, char** argv)
 
 
 
-        // 2D рисование многоцветное
+        // 2D СЂРёСЃРѕРІР°РЅРёРµ РјРЅРѕРіРѕС†РІРµС‚РЅРѕРµ
         //trTriangleTricolor2i(10, 10, 790, 10, 10, 590, RGB_TO_COLOR(255, 0, 0), RGB_TO_COLOR(0, 255, 0), RGB_TO_COLOR(0, 0, 255));
         //trTriangleTricolor2i(10, 590, 790, 590, 10, 10, RGB_TO_COLOR(255, 0, 0), RGB_TO_COLOR(0, 255, 0), RGB_TO_COLOR(0, 0, 255));
         //trTriangleTricolor2i(10, 590, 790, 10, 790, 590, RGB_TO_COLOR(255, 0, 0), RGB_TO_COLOR(0, 255, 0), RGB_TO_COLOR(0, 0, 255));
@@ -111,14 +111,14 @@ int main(int args, char** argv)
 
         // ------ 3D ------
 
-        // 3D точки тест
+        // 3D С‚РѕС‡РєРё С‚РµСЃС‚
         /*
         trPoint3f(x, y, z, RGB_TO_COLOR(255, 0, 255));
         trPoint3f(x2, y2, z2, RGB_TO_COLOR(255, 0, 255));
         */
 
 
-        // кубик из линий
+        // РєСѓР±РёРє РёР· Р»РёРЅРёР№
         /*
         trLine3f(-0.5, -0.5, -0.5,
                   0.5, -0.5, -0.5, RGB_TO_COLOR(255, 0, 0));
@@ -265,3 +265,4 @@ int main(int args, char** argv)
 
     return 0;
 }
+

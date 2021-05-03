@@ -1,4 +1,4 @@
-﻿#include <math.h>
+#include <math.h>
 
 #include "vector.h"
 
@@ -517,7 +517,7 @@ SVector3i CalcNormalVector3i(SVector3i vert1, SVector3i vert2, SVector3i vert3)
 
 SVector3f CalcNormalVector3f(SVector3f vert1, SVector3f vert2, SVector3f vert3)
 {
-	/* расчет нормали по трем вершинам из книги Краснова */
+	/* СЂР°СЃС‡РµС‚ РЅРѕСЂРјР°Р»Рё РїРѕ С‚СЂРµРј РІРµСЂС€РёРЅР°Рј РёР· РєРЅРёРіРё РљСЂР°СЃРЅРѕРІР° */
     float Qx, Qy, Qz, Px, Py, Pz;
     SVector3f v;
 
@@ -554,3 +554,4 @@ SVector3f Q2Vector3fToVector3f(const SVector3f vec)
 
     return v;
 }
+

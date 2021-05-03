@@ -15,3 +15,4 @@ typedef struct
 STexture* TextureCreate();
 void TextureLoadFromFile(STexture* texture, const char* fileName);
 void TextureDestroy(STexture** texture);
+

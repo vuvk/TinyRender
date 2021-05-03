@@ -42,7 +42,7 @@ TMatrix4x4 modl;
 
 TMatrix4x4 transform;
 
-float* curMatrix = NULL;   // какая матрица выбрана?
+float* curMatrix = NULL;   // РєР°РєР°СЏ РјР°С‚СЂРёС†Р° РІС‹Р±СЂР°РЅР°?
 
 threadpool_t* threadPool;
 mtx_t renderLock;
@@ -258,14 +258,14 @@ static bool PointPrepare(SVector3f v3f, SVector2i* out)
     SVector2f v2f = Vector3fToVector2f(v3f);
 
     int x0 = (int32)( v2f.x * trHalfWidth  + trHalfWidth);
-    int y0 = (int32)(-v2f.y * trHalfHeight + trHalfHeight); // оси перевернуть!
+    int y0 = (int32)(-v2f.y * trHalfHeight + trHalfHeight); // РѕСЃРё РїРµСЂРµРІРµСЂРЅСѓС‚СЊ!
     *out = NewVector2i(x0, y0);
 
-    // точка за плоскостями ближней и дальней
+    // С‚РѕС‡РєР° Р·Р° РїР»РѕСЃРєРѕСЃС‚СЏРјРё Р±Р»РёР¶РЅРµР№ Рё РґР°Р»СЊРЅРµР№
     if (v3f.z < trNearPlane || v3f.z > trFarPlane)
         return false;
 
-    // точка не попала на экран
+    // С‚РѕС‡РєР° РЅРµ РїРѕРїР°Р»Р° РЅР° СЌРєСЂР°РЅ
     if ((v2f.x < -1.0) || (v2f.x > 1.0) ||
         (v2f.y < -1.0) || (v2f.y > 1.0))
         return false;
@@ -562,3 +562,4 @@ void trQuadTexture3fv(float*  v0, float*  v1, float*  v2, float*  v3,
                     uv0[0], uv0[1],        uv1[0], uv1[1],        uv2[0], uv2[1],        uv3[0], uv3[1],
                     texture);
 }
+

@@ -366,3 +366,4 @@ inline void LookAtv_M4x4(TMatrix4x4 result, const SVector3f eye, const SVector3f
     LookAtf_M4x4(result, eye.x, eye.y, eye.z, center.x, center.y, center.z, up.x, up.y, up.z);
 }
 
+

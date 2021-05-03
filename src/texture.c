@@ -52,3 +52,4 @@ void TextureDestroy(STexture** texture)
     (*texture)->pixels = NULL;
     *texture = NULL;
 }
+
