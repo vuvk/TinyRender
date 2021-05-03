@@ -1,22 +1,14 @@
 #ifndef __RENDER_PRIVATE_H_INCLUDED
 #define __RENDER_PRIVATE_H_INCLUDED
 
-//#define USE_SDL1
-
-#ifdef USE_SDL1
-#include "SDL/SDL.h"
-#else  // USE_SDL2
 #include "SDL2/SDL.h"
-#endif // USE_SDL1
 
 //#include "threadpool/threadpool.h"
 //#include "tinycthread/tinycthread.h"
 
 #include "matrix.h"
 
-#ifndef USE_SDL1
 extern SDL_Window*   window;
-#endif // USE_SDL1
 /*
 extern SDL_Renderer* renderer;
 extern SDL_Texture*  screen;

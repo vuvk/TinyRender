@@ -4,11 +4,7 @@
 #include <assert.h>
 #include <math.h>
 
-#ifdef USE_SDL1
-#include "SDL/SDL.h"
-#else  // USE_SDL2
 #include "SDL2/SDL.h"
-#endif // USE_SDL1
 
 //#include "threadpool/threadpool.h"
 //#include "tinycthread/tinycthread.h"
@@ -19,9 +15,7 @@
 #include "render.h"
 #include "render_private.h"
 
-#ifndef USE_SDL1
 SDL_Window*   window;
-#endif // USE_SDL1
 /*
 SDL_Surface*  windowSurface;
 SDL_Renderer* renderer;
@@ -98,9 +92,7 @@ void trClose()
     SDL_DestroyTexture(screen);
     SDL_DestroyRenderer(renderer);
     */
-#ifndef USE_SDL1
     SDL_DestroyWindow(window);
-#endif // USE_SDL1
     SDL_Quit();
 
     //threadpool_destroy(threadPool, 0);
@@ -125,11 +117,7 @@ inline void trClear()
 
 void trSwapBuffers()
 {
-#ifdef USE_SDL1
-    SDL_Flip(frameBuffer);
-#else
     SDL_UpdateWindowSurface(window);
-#endif // USE_SDL1
 }
 
 

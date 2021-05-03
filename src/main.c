@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 #include "types.h"
 #include "utils.h"
 #include "color.h"
@@ -9,12 +8,7 @@
 #include "render_private.h"
 #include "fps.h"
 
-
-#ifdef USE_SDL1
-#include "SDL/SDL.h"
-#else  // USE_SDL2
 #include "SDL2/SDL.h"
-#endif // USE_SDL1
 
 
 #define SCREEN_WIDTH  800
@@ -254,11 +248,7 @@ int main(int args, char** argv)
         CalcFPS();
         char buffer[50];
         sprintf(buffer, "tinyRender fps - %d", fps);
-        #ifdef USE_SDL1
-        SDL_WM_SetCaption(buffer, NULL);
-        #else
         SDL_SetWindowTitle(window, buffer);
-        #endif // USE_SDL1
     }
 
     trClose();

@@ -3,11 +3,7 @@
 
 #include <stdio.h>
 
-#ifdef USE_SDL1
-#include "SDL/SDL.h"
-#else  // USE_SDL2
 #include "SDL2/SDL.h"
-#endif // USE_SDL1
 
 #include "types.h"
 #include "texture.h"
