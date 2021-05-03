@@ -24,5 +24,9 @@ $(EXECUTABLE): $(OBJS)
 	mkdir -p $(BIN_FOLDER)
 	$(CC) $(OBJS) $(LDFLAGS) -o $(EXECUTABLE)
 
+release: $(OBJS)
+	mkdir -p $(BIN_FOLDER)
+	$(CC) $(OBJS) $(LDFLAGS) -o $(EXECUTABLE) -O3 -s
+	
 clean:
 	rm -rf $(OBJ_FOLDER) $(EXECUTABLE)
