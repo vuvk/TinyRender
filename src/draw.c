@@ -472,9 +472,9 @@ static void thrd_DrawBorderColor(void* arguments)
     for (register int i = args->fromY; i < toY; ++i, ++p)
         DrawHorLineColor(p->x0 + minX, p->x1 + minX, i + minY, color, pixels);
 
-    mtx_lock(&renderLock);
+    //mtx_lock(&renderLock);
     ++renderDone;
-    mtx_unlock(&renderLock);
+    //mtx_unlock(&renderLock);
 }
 
 // рисует одноцветный полигон по инфе из borders, разделяя рендеринг на потоки
@@ -489,7 +489,7 @@ static void DrawPolyColor(SBorderBit* borders, void* pixels, uint32 color, int m
                 args6 = args0,
                 args7 = args0;
     renderDone = 0;
-    if (bufHeight > 32)
+    /*if (bufHeight > 32)
     {
         int bufHeightPart = bufHeight >> 3;
 
@@ -529,10 +529,11 @@ static void DrawPolyColor(SBorderBit* borders, void* pixels, uint32 color, int m
         threadpool_add(threadPool, thrd_DrawBorderColor, &args6, 0);
         threadpool_add(threadPool, thrd_DrawBorderColor, &args7, 0);
     }
-    else    // маленькие изображения рисовать в один поток
+    else*/    // маленькие изображения рисовать в один поток
     {
         renderTask = 1;
-        threadpool_add(threadPool, thrd_DrawBorderColor, &args0, 0);
+        //threadpool_add(threadPool, thrd_DrawBorderColor, &args0, 0);
+        thrd_DrawBorderColor (&args0);
     }
 
     struct timespec tw = {0, 1};
@@ -558,9 +559,9 @@ static void thrd_DrawBorderGradient(void* arguments)
     for (register int i = args->fromY; i < toY; ++i, ++p)
         DrawHorLineBicolor(p->x0 + minX, p->x1 + minX, i + minY, p->color0, p->color1, pixels);
 
-    mtx_lock(&renderLock);
+    //mtx_lock(&renderLock);
     ++renderDone;
-    mtx_unlock(&renderLock);
+    //mtx_unlock(&renderLock);
 }
 
 // рисует затекстурированный полигон по инфе из borders, разделяя рендеринг на потоки
@@ -575,7 +576,7 @@ static void DrawPolyGradient(SBorderBitColor* borders, void* pixels, int minX, i
                 args6 = args0,
                 args7 = args0;
     renderDone = 0;
-    if (bufHeight > 32)
+    /*if (bufHeight > 32)
     {
         int bufHeightPart = bufHeight >> 3;
 
@@ -615,10 +616,11 @@ static void DrawPolyGradient(SBorderBitColor* borders, void* pixels, int minX, i
         threadpool_add(threadPool, thrd_DrawBorderGradient, &args6, 0);
         threadpool_add(threadPool, thrd_DrawBorderGradient, &args7, 0);
     }
-    else    // маленькие изображения рисовать в один поток
+    else */   // маленькие изображения рисовать в один поток
     {
         renderTask = 1;
-        threadpool_add(threadPool, thrd_DrawBorderGradient, &args0, 0);
+        //threadpool_add(threadPool, thrd_DrawBorderGradient, &args0, 0);
+        thrd_DrawBorderGradient (&args0);
     }
 
     struct timespec tw = {0, 1};
@@ -645,9 +647,9 @@ static void thrd_DrawBorderTextured (void* arguments)
     for (register int i = args->fromY; i < toY; ++i, ++p)
         DrawHorLineTextured(p->x0 + minX, p->x1 + minX, i + minY, p->uv0, p->uv1, texture, pixels);
 
-    mtx_lock(&renderLock);
+    //mtx_lock(&renderLock);
     ++renderDone;
-    mtx_unlock(&renderLock);
+    //mtx_unlock(&renderLock);
 }
 
 // рисует затекстурированный полигон по инфе из borders, разделяя рендеринг на потоки
@@ -662,7 +664,7 @@ static void DrawPolyTextured(SBorderBitUV* borders, STexture* texture, void* pix
                 args6 = args0,
                 args7 = args0;
     renderDone = 0;
-    if (bufHeight > 32)
+    /*if (bufHeight > 32)
     {
         int bufHeightPart = bufHeight >> 3;
 
@@ -702,10 +704,11 @@ static void DrawPolyTextured(SBorderBitUV* borders, STexture* texture, void* pix
         threadpool_add(threadPool, thrd_DrawBorderTextured, &args6, 0);
         threadpool_add(threadPool, thrd_DrawBorderTextured, &args7, 0);
     }
-    else    // маленькие изображения рисовать в один поток
+    else  */  // маленькие изображения рисовать в один поток
     {
         renderTask = 1;
-        threadpool_add(threadPool, thrd_DrawBorderTextured, &args0, 0);
+        //threadpool_add(threadPool, thrd_DrawBorderTextured, &args0, 0);
+        thrd_DrawBorderTextured (&args0);
     }
 
     struct timespec tw = {0, 1};

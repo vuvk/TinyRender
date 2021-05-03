@@ -8,8 +8,8 @@
 #include "SDL2/SDL.h"
 #endif // USE_SDL1
 
-#include "threadpool/threadpool.h"
-#include "tinycthread/tinycthread.h"
+//#include "threadpool/threadpool.h"
+//#include "tinycthread/tinycthread.h"
 
 #include "matrix.h"
 
@@ -34,6 +34,6 @@ extern TMatrix4x4 modl;
 
 #define THREAD 32
 #define QUEUE  256
-extern threadpool_t* threadPool;
-extern mtx_t renderLock;
+//extern threadpool_t* threadPool;
+//extern mtx_t renderLock;
 

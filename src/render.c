@@ -10,8 +10,8 @@
 #include "SDL2/SDL.h"
 #endif // USE_SDL1
 
-#include "threadpool/threadpool.h"
-#include "tinycthread/tinycthread.h"
+//#include "threadpool/threadpool.h"
+//#include "tinycthread/tinycthread.h"
 
 #include "utils.h"
 #include "matrix.h"
@@ -44,8 +44,8 @@ TMatrix4x4 transform;
 
 float* curMatrix = NULL;   // какая матрица выбрана?
 
-threadpool_t* threadPool;
-mtx_t renderLock;
+//threadpool_t* threadPool;
+//mtx_t renderLock;
 
 bool trInit(const char* title, int width, int height, int bits)
 {
@@ -79,8 +79,8 @@ bool trInit(const char* title, int width, int height, int bits)
 
     clearColor = 0xFF;
 
-    assert((threadPool = threadpool_create(THREAD, QUEUE, 0)) != NULL);
-    mtx_init(&renderLock, 0);
+    //assert((threadPool = threadpool_create(THREAD, QUEUE, 0)) != NULL);
+    //mtx_init(&renderLock, 0);
 
     /*
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
@@ -103,8 +103,8 @@ void trClose()
 #endif // USE_SDL1
     SDL_Quit();
 
-    threadpool_destroy(threadPool, 0);
-    mtx_destroy(&renderLock);
+    //threadpool_destroy(threadPool, 0);
+    //mtx_destroy(&renderLock);
 }
 
 inline void trClearColorb(uint8 r, uint8 g, uint8 b)
