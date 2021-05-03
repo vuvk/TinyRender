@@ -4,4 +4,6 @@
 *.dll
 *.so
 *.dylib
-
+obj/
+lib/
+bin/
