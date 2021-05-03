@@ -1,1 +1,7 @@
 *.o
+*.a
+*.exe
+*.dll
+*.so
+*.dylib
+
