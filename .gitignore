@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+*.swp
 obj/
 lib/
 bin/

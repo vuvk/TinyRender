@@ -9,7 +9,7 @@ OBJ_FOLDER=obj
 SRC_FOLDER=src
 # search all c code in folder with sources
 C_SOURCES=$(shell find $(SRC_FOLDER)/ -name "*.c")
-# object files names == sources with .* suffix and placed in OBJ_FOLDER
+# object files names == sources with .o suffix and placed in OBJ_FOLDER
 OBJS=$(addprefix $(OBJ_FOLDER)/,$(notdir $(patsubst %.c,%.o,$(C_SOURCES))))
 EXECUTABLE=$(BIN_FOLDER)/tiny_render
 
