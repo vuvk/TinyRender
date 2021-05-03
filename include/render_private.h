@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __RENDER_PRIVATE_H_INCLUDED
+#define __RENDER_PRIVATE_H_INCLUDED
 
 //#define USE_SDL1
 
@@ -37,3 +38,4 @@ extern TMatrix4x4 modl;
 //extern threadpool_t* threadPool;
 //extern mtx_t renderLock;
 
+#endif //__RENDER_PRIVATE_H_INCLUDED

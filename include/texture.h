@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __TEXTURE_H_INCLUDED
+#define __TEXTURE_H_INCLUDED
 
 #include "types.h"
 
@@ -16,3 +17,4 @@ STexture* TextureCreate();
 void TextureLoadFromFile(STexture* texture, const char* fileName);
 void TextureDestroy(STexture** texture);
 
+#endif //__TEXTURE_H_INCLUDED

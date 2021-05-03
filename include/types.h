@@ -16,8 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
 
+#ifndef __TYPES_H_INCLUDED
+#define __TYPES_H_INCLUDED
 
 //#include <inttypes.h>
 #include <stdint.h>
@@ -33,3 +34,4 @@ typedef uint32_t  uint32;
 typedef int64_t   int64;
 typedef uint64_t  uint64;
 
+#endif //__TYPES_H_INCLUDED

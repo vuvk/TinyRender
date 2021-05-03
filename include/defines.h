@@ -16,7 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef __DEFINES_H_INCLUDED
+#define __DEFINES_H_INCLUDED
 
 /** ERROR CODES */
 #define ERROR_ENGINE_NOT_CREATED     1
@@ -51,3 +52,4 @@
     #define _TEXT_DEBUG
 #endif // DEBUG
 
+#endif //__DEFINES_H_INCLUDED

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __RENDER_H_INCLUDED
+#define __RENDER_H_INCLUDED
 
 #include "types.h"
 #include "vector.h"
@@ -100,3 +101,4 @@ void trQuadTexture3fv(float*  v0, float*  v1, float*  v2, float*  v3,
                       float* uv0, float* uv1, float* uv2, float* uv3,
                       STexture* texture);
 
+#endif //__RENDER_H_INCLUDED

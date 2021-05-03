@@ -16,7 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef __MATRIX_H_INCLUDED
+#define __MATRIX_H_INCLUDED
 
 #include "vector.h"
 
@@ -55,3 +56,4 @@ bool Perspectivef_M4x4(TMatrix4x4 result, const float fovy, const float aspect, 
 void LookAtf_M4x4(TMatrix4x4 result, const float eyeX, const float eyeY, const float eyeZ, const float centerX, const float centerY, const float centerZ, const float upX, const float upY, const float upZ);
 void LookAtv_M4x4(TMatrix4x4 result, const SVector3f eye, const SVector3f center, const SVector3f up);
 
+#endif //__MATRIX_H_INCLUDED

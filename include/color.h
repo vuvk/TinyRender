@@ -16,7 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef __COLOR_H_INCLUDED
+#define __COLOR_H_INCLUDED
 
 #include "types.h"
 #include "render_private.h"
@@ -103,4 +104,4 @@ uint8 BlueFromRGB(uint32 color);
                                                _RGB565_PACK((r), (g), (b))
 
 
-
+#endif //__COLOR_H_INCLUDED

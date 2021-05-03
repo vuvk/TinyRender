@@ -16,8 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
-
+#ifndef __VECTOR_H_INCLUDED
+#define __VECTOR_H_INCLUDED
 
 #include "types.h"
 
@@ -176,3 +176,4 @@ typedef float SQ2Vector3f[3];
 SVector3f Vector3fToQ2Vector3f(const SVector3f vec);    // change axis to Q2-style
 SVector3f Q2Vector3fToVector3f(const SVector3f vec);    // change axis from Q2-style
 
+#endif //__VECTOR_H_INCLUDED
