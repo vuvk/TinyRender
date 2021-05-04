@@ -104,11 +104,6 @@ TrVector2f tr_vec2f_norm (TrVector2f vec)
 }
 
 /* dot product */
-inline float tr_vec2i_dot (TrVector2i vec1, TrVector2i vec2)
-{
-    return sqrt (vec1.x * vec2.x + vec1.y * vec2.y);
-}
-
 inline float tr_vec2f_dot (TrVector2f vec1, TrVector2f vec2)
 {
     return sqrt (vec1.x * vec2.x + vec1.y * vec2.y);

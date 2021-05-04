@@ -70,7 +70,6 @@ float tr_vec2f_len (TrVector2f vec);
 TrVector2f tr_vec2f_norm (TrVector2f vec);
 
 /* dot product */
-float tr_vec2i_dot (TrVector2i vec1, TrVector2i vec2);
 float tr_vec2f_dot (TrVector2f vec1, TrVector2f vec2);
 
 #ifdef __cplusplus
