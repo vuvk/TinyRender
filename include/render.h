@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __RENDER_H_INCLUDED
 #define __RENDER_H_INCLUDED
 
@@ -27,6 +29,10 @@
 
 #define PROJECTION_MATRIX 1
 #define MODELVIEW_MATRIX  2
+
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
 
 bool trInit(const char* title, int width, int height, int bits);
 void trClose();
@@ -118,5 +124,9 @@ void trQuadTexture3f(float x0, float y0, float z0, float x1, float y1, float z1,
 void trQuadTexture3fv(float*  v0, float*  v1, float*  v2, float*  v3,
                       float* uv0, float* uv1, float* uv2, float* uv3,
                       STexture* texture);
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 #endif //__RENDER_H_INCLUDED

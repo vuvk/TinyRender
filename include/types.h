@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __TYPES_H_INCLUDED
 #define __TYPES_H_INCLUDED
 

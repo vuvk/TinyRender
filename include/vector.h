@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __VECTOR_H_INCLUDED
 #define __VECTOR_H_INCLUDED
 
@@ -76,6 +78,9 @@ static const SVector3f vUp3f = {0.0f, 1.0f, 0.0f};
 /* forward vector */
 static const SVector3f vForward3f = {0.0f, 0.0f, 1.0f};
 
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
 
 /* "constructors" */
 SVector2i NewVector2i(int32 x, int32 y);
@@ -175,5 +180,9 @@ typedef float SQ2Vector3f[3];
 #define Q2VectorClear(a) (a[0] = a[1] = a[2] = 0)
 SVector3f Vector3fToQ2Vector3f(const SVector3f vec);    // change axis to Q2-style
 SVector3f Q2Vector3fToVector3f(const SVector3f vec);    // change axis from Q2-style
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 #endif //__VECTOR_H_INCLUDED

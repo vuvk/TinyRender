@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __MATRIX_H_INCLUDED
 #define __MATRIX_H_INCLUDED
 
@@ -24,11 +26,11 @@
 typedef float TMatrix3x3[9];
 typedef float TMatrix4x4[16];
 
-
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
 
 void LoadIdentity_M3x3(TMatrix3x3 matrix);
-
-
 
 /* matrix 4x4 operations */
 void LoadIdentity_M4x4(TMatrix4x4 matrix);
@@ -55,5 +57,9 @@ bool Frustumf_M4x4(TMatrix4x4 result, const float left, const float right, const
 bool Perspectivef_M4x4(TMatrix4x4 result, const float fovy, const float aspect, const float zNear, const float zFar);
 void LookAtf_M4x4(TMatrix4x4 result, const float eyeX, const float eyeY, const float eyeZ, const float centerX, const float centerY, const float centerZ, const float upX, const float upY, const float upZ);
 void LookAtv_M4x4(TMatrix4x4 result, const SVector3f eye, const SVector3f center, const SVector3f up);
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 #endif //__MATRIX_H_INCLUDED

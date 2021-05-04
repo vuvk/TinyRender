@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __TEXTURE_H_INCLUDED
 #define __TEXTURE_H_INCLUDED
 
@@ -31,8 +33,16 @@ typedef struct
     int32 height;
 } STexture;
 
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
+
 STexture* TextureCreate();
 void TextureLoadFromFile(STexture* texture, const char* fileName);
 void TextureDestroy(STexture** texture);
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 #endif //__TEXTURE_H_INCLUDED

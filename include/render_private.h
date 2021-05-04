@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __RENDER_PRIVATE_H_INCLUDED
 #define __RENDER_PRIVATE_H_INCLUDED
 

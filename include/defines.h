@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __DEFINES_H_INCLUDED
 #define __DEFINES_H_INCLUDED
 

@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __DRAW_H_INCLUDED
 #define __DRAW_H_INCLUDED
 
@@ -26,6 +28,9 @@
 #include "types.h"
 #include "texture.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
 
 void DrawLine (int32 x0, int32 y0, int32 x1, int32 y1, uint32 color, void* pixels);
 void DrawLineBicolor (int32 x0, int32 y0, int32 x1, int32 y1, uint32 color0, uint32 color1, void* pixels);
@@ -51,5 +56,9 @@ void ClearPixels(uint32 color, int w, int h, void* pixels);
 void PutPixel(int32 x, int32 y, uint32 color, void* pixels);
 //Performs simple conversions to prepare a surface for accessing pixels
 uint32 GetPixel_(uint32 x, uint32 y, void* pixels);
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 #endif //__DRAW_H_INCLUDED

@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __UTILS_H_INCLUDED
 #define __UTILS_H_INCLUDED
 
@@ -56,6 +58,10 @@
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 #define SQR(a) (a)*(a)
+
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
 
 /* math */
 //static const float PI_2 = 2.0f*M_PI;
@@ -159,5 +165,9 @@ void StrCopy(char* dst, const char* src, uint32 maxLength);
 int32 StrLength(const char* string);
 
 bool FileExist(const char* fileName);
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 #endif //__UTILS_H_INCLUDED

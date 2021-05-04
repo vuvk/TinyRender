@@ -16,6 +16,8 @@
 
 */
 
+#pragma once
+
 #ifndef __FPS_H_INCLUDED
 #define __FPS_H_INCLUDED
 
@@ -23,9 +25,17 @@
 
 #define MAX_FPS 60
 
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
+
 extern double deltaTime;
 extern int fps;
 
 double CalcFPS();
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 #endif //__FPS_H_INCLUDED

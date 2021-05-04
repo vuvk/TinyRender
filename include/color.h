@@ -16,11 +16,17 @@
 
 */
 
+#pragma once
+
 #ifndef __COLOR_H_INCLUDED
 #define __COLOR_H_INCLUDED
 
 #include "types.h"
 #include "render_private.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
 
 typedef struct
 {
@@ -102,6 +108,10 @@ uint8 BlueFromRGB(uint32 color);
 #define RGB_TO_COLOR(r, g, b) (trBits == 32) ? ((r << 0 ) | (g << 8) | (b << 16) | (255 << 24)) :  \
                               (trBits == 24) ? ((r << 0 ) | (g << 8) | (b << 16))               :  \
                                                _RGB565_PACK((r), (g), (b))
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
 
 
 #endif //__COLOR_H_INCLUDED
