@@ -25,12 +25,20 @@
 
 typedef struct _TrVector2i
 {
-	int32 x, y;
+    union
+    {
+        int32 x, y;
+        int32 comp2[2];
+    };
 } TrVector2i;
 
 typedef struct _TrVector2f
 {
-	float x, y;
+    union
+    {
+        float x, y;
+        float comp2[2];
+    };
 } TrVector2f;
 
 /* zero vectors */

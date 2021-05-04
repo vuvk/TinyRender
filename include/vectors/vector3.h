@@ -28,20 +28,30 @@ typedef struct _TrVector3i
 {
     union
     {
-        struct _TrVector2i;
-        TrVector2i v2;
+        union
+        {
+            struct _TrVector2i;
+            TrVector2i v2;
+        };
+        int32 z;
+
+        int32 comp3[3];
     };
-    int32 z;
 } TrVector3i;
 
 typedef struct _TrVector3f
 {
     union
     {
-        struct _TrVector2f;
-        TrVector2f v2;
+        union
+        {
+            struct _TrVector2f;
+            TrVector2f v2;
+        };
+        float z;
+
+	float comp3[3];
     };
-    float z;
 } TrVector3f;
 
 /* zero vectors */
