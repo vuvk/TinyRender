@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Iinclude -Wall -g $(shell sdl2-config --cflags)
+CFLAGS=-Iinclude -Wall -g -std=c11 $(shell sdl2-config --cflags)
 LDFLAGS=$(shell sdl2-config --libs) -lm
 # binaries here
 BIN_FOLDER=bin
