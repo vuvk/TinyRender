@@ -37,34 +37,52 @@ inline bool tr_vec2f_equals (TrVector2f vec1, TrVector2f vec2)
 /* addition */
 inline TrVector2i tr_vec2i_add (TrVector2i vec1, TrVector2i vec2)
 {
-    return (TrVector2i) { vec1.x + vec2.x, vec1.y + vec2.y };
+    return (TrVector2i) { 
+        .x = vec1.x + vec2.x, 
+        .y = vec1.y + vec2.y 
+    };
 }
 
 inline TrVector2f tr_vec2f_add (TrVector2f vec1, TrVector2f vec2)
 {
-    return (TrVector2f) { vec1.x + vec2.x, vec1.y + vec2.y };
+    return (TrVector2f) { 
+        .x = vec1.x + vec2.x, 
+        .y = vec1.y + vec2.y 
+    };
 }
 
 /* subtract */
 inline TrVector2i tr_vec2i_sub (TrVector2i vec1, TrVector2i vec2)
 {
-    return (TrVector2i) { vec1.x - vec2.x, vec1.y - vec2.y };
+    return (TrVector2i) { 
+        .x = vec1.x - vec2.x, 
+        .y = vec1.y - vec2.y 
+    };
 }
 
 inline TrVector2f tr_vec2f_sub (TrVector2f vec1, TrVector2f vec2)
 {
-    return (TrVector2f) { vec1.x - vec2.x, vec1.y - vec2.y };
+    return (TrVector2f) { 
+        .x = vec1.x - vec2.x, 
+        .y = vec1.y - vec2.y 
+    };
 }
 
 /* multiplication by scalar */
 inline TrVector2i tr_vec2i_mul (TrVector2i vec, float scalar)
 {
-    return (TrVector2i) { vec.x * scalar, vec.y * scalar };
+    return (TrVector2i) { 
+        .x = vec.x * scalar, 
+        .y = vec.y * scalar 
+    };
 }
 
 inline TrVector2f tr_vec2f_mul (TrVector2f vec, float scalar)
 {
-    return (TrVector2f) { vec.x * scalar, vec.y * scalar };
+    return (TrVector2f) { 
+        .x = vec.x * scalar, 
+        .y = vec.y * scalar 
+    };
 }
 
 /* division by scalar */
