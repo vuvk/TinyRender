@@ -22,5 +22,6 @@
 #define __VECTORS_H_INCLUDED
 
 #include "vectors/vector2.h"
+#include "vectors/vector3.h"
 
 #endif //__VECTORS_H_INCLUDED
