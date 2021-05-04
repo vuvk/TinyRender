@@ -50,16 +50,52 @@ static const TrVector3f TR_ZERO3f = { 0 };
 
 /* right vector */
 static const TrVector3f TR_RIGHT3f = { .x = 1.0f, .y = 0.0f, .z = 0.0f };
-
 /* up vector */
 static const TrVector3f TR_UP3f = { .x = 0.0f, .y = 1.0f, .z = 0.0f };
-
 /* forward vector */
 static const TrVector3f TR_FORWARD3f = { .x = 0.0f, .y = 0.0f, .z = 1.0f };
 
 #ifdef __cplusplus
 extern "C" {
 #endif  //__cplusplus
+
+/* equals */
+bool tr_vec3i_equals (TrVector3i vec1, TrVector3i vec2);
+bool tr_vec3f_equals (TrVector3f vec1, TrVector3f vec2);
+
+/* math operations */
+/* addition */
+TrVector3i tr_vec3i_add (TrVector3i vec1, TrVector3i vec2);
+TrVector3f tr_vec3f_add (TrVector3f vec1, TrVector3f vec2);
+
+/* subtract */
+TrVector3i tr_vec3i_sub (TrVector3i vec1, TrVector3i vec2);
+TrVector3f tr_vec3f_sub (TrVector3f vec1, TrVector3f vec2);
+
+/* multiplication by scalar */
+TrVector3i tr_vec3i_mul (TrVector3i vec, float scalar);
+TrVector3f tr_vec3f_mul (TrVector3f vec, float scalar);
+
+/* division by scalar */
+TrVector3i tr_vec3i_div (TrVector3i vec, float scalar);
+TrVector3f tr_vec3f_div (TrVector3f vec, float scalar);
+
+/* magnitude of vector */
+float tr_vec3i_len (TrVector3i vec);
+float tr_vec3f_len (TrVector3f vec);
+
+/* normalize vector */
+TrVector3f tr_vec3f_norm (TrVector3f vec);
+
+/* dot product */
+float tr_vec3i_dot (TrVector3i vec1, TrVector3i vec2);
+float tr_vec3f_dot (TrVector3f vec1, TrVector3f vec2);
+
+/* cross product */
+TrVector3f tr_vec3f_cross (TrVector3f vec1, TrVector3f vec2);
+
+/* calculate normal */
+TrVector3f tr_vec3f_calc_normal (TrVector3f vert1, TrVector3f vert2, TrVector3f vert3);
 
 #ifdef __cplusplus
 }
