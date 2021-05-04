@@ -554,12 +554,12 @@ static void DrawPolyColor(SBorderBit* borders, void* pixels, uint32 color, int m
         thrd_DrawBorderColor (&args0);
     }
 
-    struct timespec tw = {0, 1};
+    /*struct timespec tw = {0, 1};
     while(renderTask > renderDone)
     {
         nanosleep(&tw, NULL);
         //usleep(1);
-    }
+    }*/
 }
 
 // поток для рисования градиентных горизонтальных линий
@@ -641,12 +641,12 @@ static void DrawPolyGradient(SBorderBitColor* borders, void* pixels, int minX, i
         thrd_DrawBorderGradient (&args0);
     }
 
-    struct timespec tw = {0, 1};
+    /*struct timespec tw = {0, 1};
     while(renderTask > renderDone)
     {
         nanosleep(&tw, NULL);
         //usleep(1);
-    }
+    }*/
 }
 
 // поток для рисования текстурированных горизонтальных линий
@@ -729,12 +729,12 @@ static void DrawPolyTextured(SBorderBitUV* borders, STexture* texture, void* pix
         thrd_DrawBorderTextured (&args0);
     }
 
-    struct timespec tw = {0, 1};
+    /*struct timespec tw = {0, 1};
     while(renderTask > renderDone)
     {
         nanosleep(&tw, NULL);
         //usleep(1);
-    }
+    }*/
 }
 
 
