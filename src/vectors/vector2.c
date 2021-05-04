@@ -20,10 +20,6 @@
 
 #include "vectors/vector2.h"
 
-/* transformation from .. to .. */
-//TrVector3f tr_vec2f_to_vec3f (TrVector2f vec);
-//TrVector2f tr_vec3f_to_vec2f (TrVector3f vec);
-
 /* equals */
 inline bool tr_vec2i_equals (TrVector2i vec1, TrVector2i vec2)
 {

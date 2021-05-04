@@ -23,10 +23,6 @@
 
 #include "types.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif  //__cplusplus
-
 typedef struct _TrVector2i
 {
 	int32 x, y;
@@ -38,12 +34,12 @@ typedef struct _TrVector2f
 } TrVector2f;
 
 /* zero vectors */
-static const TrVector2i TR_ZERO2i = { 0, 0 };
-static const TrVector2f TR_ZERO2f = { 0, 0 };
+static const TrVector2i TR_ZERO2i = { 0 };
+static const TrVector2f TR_ZERO2f = { 0 };
 
-/* transformation from .. to .. */
-//TrVector3f tr_vec2f_to_vec3f (TrVector2f vec);
-//TrVector2f tr_vec3f_to_vec2f (TrVector3f vec);
+#ifdef __cplusplus
+extern "C" {
+#endif  //__cplusplus
 
 /* equals */
 bool tr_vec2i_equals (TrVector2i, TrVector2i);

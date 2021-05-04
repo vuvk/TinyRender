@@ -28,7 +28,7 @@ typedef struct _TrVector3i
 {
     union
     {
-        struct _TrVector2i anon;
+        struct _TrVector2i;
         TrVector2i v2;
     };
     int32 z;
@@ -38,7 +38,7 @@ typedef struct _TrVector3f
 {
     union
     {
-        struct _TrVector2f anon;
+        struct _TrVector2f;
         TrVector2f v2;
     };
     float z;
@@ -49,20 +49,17 @@ static const TrVector3i TR_ZERO3i = { 0 };
 static const TrVector3f TR_ZERO3f = { 0 };
 
 /* right vector */
-static const TrVector3f TR_RIGHT3f = { 1.0f, 0.0f, 0.0f };
+static const TrVector3f TR_RIGHT3f = { .x = 1.0f, .y = 0.0f, .z = 0.0f };
 
 /* up vector */
-static const TrVector3f TR_UP3f = { 0.0f, 1.0f, 0.0f };
+static const TrVector3f TR_UP3f = { .x = 0.0f, .y = 1.0f, .z = 0.0f };
 
 /* forward vector */
-static const TrVector3f TR_FORWARD3f = { 0.0f, 0.0f, 1.0f };
+static const TrVector3f TR_FORWARD3f = { .x = 0.0f, .y = 0.0f, .z = 1.0f };
 
 #ifdef __cplusplus
 extern "C" {
 #endif  //__cplusplus
-
-/* transformation from .. to .. */
-//TrVector3f tr_vec2f_to_vec3f (TrVector2f vec);
 
 #ifdef __cplusplus
 }

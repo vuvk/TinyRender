@@ -2,7 +2,7 @@
 
    Copyright 2017, 2021 Anton "Vuvk" Shcherbatykh (vuvk69@gmail.com)
 
-   Licensed under the Apache License, Version 2.0 (the "License");
+   Licensed under the Apache License, Version 2.0 (the "License"); 
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
@@ -16,24 +16,25 @@
 
 */
 
-#pragma once
-
-#ifndef __VECTORS_H_INCLUDED
-#define __VECTORS_H_INCLUDED
-
-#include "vectors/vector2.h"
-#include "vectors/vector3.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif  //__cplusplus
+#include "vectors/vectors.h"
 
 /* transformation from .. to .. */
-TrVector2f tr_vec3f_to_vec2f (TrVector3f vec);
-TrVector3f tr_vec2f_to_vec3f (TrVector2f vec);
-
-#ifdef __cplusplus
+TrVector2f tr_vec3f_to_vec2f (TrVector3f vec)
+{
+    float z;
+    if (vec.z != 0.0f) 
+    {
+        z = 1.0f / vec.z;
+    }
+    else
+    {
+        z = 0.0f;
+    }
+    return (TrVector2f) { .x = vec.x * z, .y = vec.y * z };
 }
-#endif //__cplusplus
 
-#endif //__VECTORS_H_INCLUDED
+inline TrVector3f tr_vec2f_to_vec3f (TrVector2f vec)
+{
+    return (TrVector3f) { .x = vec.x, .y = vec.y, .z = 1.0f };
+}
+
