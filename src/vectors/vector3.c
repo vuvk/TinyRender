@@ -23,14 +23,14 @@ inline bool tr_vec3i_equals (TrVector3i vec1, TrVector3i vec2)
 {
     return vec1.x == vec2.x &&
            vec1.y == vec2.y &&
-           vec1.z == vec1.z;
+           vec1.z == vec2.z;
 }
 
 inline bool tr_vec3f_equals (TrVector3f vec1, TrVector3f vec2)
 {
     return vec1.x == vec2.x &&
            vec1.y == vec2.y &&
-           vec1.z == vec1.z;
+           vec1.z == vec2.z;
 }
 
 /* math operations */
