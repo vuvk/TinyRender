@@ -21,20 +21,18 @@
 /* transformation from .. to .. */
 TrVector2f tr_vec3f_to_vec2f (TrVector3f vec)
 {
-    float z;
-    if (vec.z != 0.0f) 
-    {
-        z = 1.0f / vec.z;
-    }
-    else
-    {
-        z = 0.0f;
-    }
-    return (TrVector2f) { .x = vec.x * z, .y = vec.y * z };
+    float z = (vec.z != 0.0f) ? (1.0f / vec.z) : 0.0f;
+    return (TrVector2f) {
+        .x = vec.x * z,
+        .y = vec.y * z
+    };
 }
 
 inline TrVector3f tr_vec2f_to_vec3f (TrVector2f vec)
 {
-    return (TrVector3f) { .x = vec.x, .y = vec.y, .z = 1.0f };
+    return (TrVector3f) {
+        .x = vec.x,
+        .y = vec.y,
+        .z = 1.0f
+    };
 }
-

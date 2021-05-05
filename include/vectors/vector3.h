@@ -38,7 +38,7 @@ typedef struct _TrVector3i
             int32 z;
         };
 
-        int32 comp3[3];
+        int32 a3[3];
     };
 } TrVector3i;
 
@@ -56,7 +56,7 @@ typedef struct _TrVector3f
             float z;
         };
 
-        float comp3[3];
+        float a3[3];
     };
 } TrVector3f;
 

@@ -1,4 +1,5 @@
 CC=gcc
+#CC=clang
 CFLAGS=-Iinclude -Wall -g -std=c11 -fms-extensions $(shell sdl2-config --cflags)
 LDFLAGS=$(shell sdl2-config --libs) -lm
 # binaries here
