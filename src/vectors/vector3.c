@@ -16,20 +16,20 @@
 
 */
 
+#include <math.h>
+
 #include "vectors/vector3.h"
 
 /* equals */
 inline bool tr_vec3i_equals (TrVector3i vec1, TrVector3i vec2)
 {
-    return vec1.x == vec2.x &&
-           vec1.y == vec2.y &&
+    return tr_vec2i_equals (vec1.v2, vec2.v2) &&
            vec1.z == vec2.z;
 }
 
 inline bool tr_vec3f_equals (TrVector3f vec1, TrVector3f vec2)
 {
-    return vec1.x == vec2.x &&
-           vec1.y == vec2.y &&
+    return tr_vec2f_equals (vec1.v2, vec2.v2) &&
            vec1.z == vec2.z;
 }
 
@@ -38,8 +38,7 @@ inline bool tr_vec3f_equals (TrVector3f vec1, TrVector3f vec2)
 inline TrVector3i tr_vec3i_add (TrVector3i vec1, TrVector3i vec2)
 {
     return (TrVector3i) { 
-        .x = vec1.x + vec2.x, 
-        .y = vec1.y + vec2.y, 
+        .v2 = tr_vec2i_add (vec1.v2, vec2.v2), 
         .z = vec1.z + vec2.z 
     };
 }
@@ -47,8 +46,7 @@ inline TrVector3i tr_vec3i_add (TrVector3i vec1, TrVector3i vec2)
 inline TrVector3f tr_vec3f_add (TrVector3f vec1, TrVector3f vec2)
 {
     return (TrVector3f) { 
-        .x = vec1.x + vec2.x, 
-        .y = vec1.y + vec2.y, 
+        .v2 = tr_vec2f_add (vec1.v2, vec2.v2), 
         .z = vec1.z + vec2.z 
     };
 }
@@ -57,8 +55,7 @@ inline TrVector3f tr_vec3f_add (TrVector3f vec1, TrVector3f vec2)
 inline TrVector3i tr_vec3i_sub (TrVector3i vec1, TrVector3i vec2)
 {
     return (TrVector3i) { 
-        .x = vec1.x - vec2.x, 
-        .y = vec1.y - vec2.y, 
+        .v2 = tr_vec2i_sub (vec1.v2, vec2.v2), 
         .z = vec1.z - vec2.z 
     };
 }
@@ -66,8 +63,7 @@ inline TrVector3i tr_vec3i_sub (TrVector3i vec1, TrVector3i vec2)
 inline TrVector3f tr_vec3f_sub (TrVector3f vec1, TrVector3f vec2)
 {
     return (TrVector3f) { 
-        .x = vec1.x - vec2.x, 
-        .y = vec1.y - vec2.y, 
+        .v2 = tr_vec2f_sub (vec1.v2, vec2.v2), 
         .z = vec1.z - vec2.z 
     };
 }
@@ -76,8 +72,7 @@ inline TrVector3f tr_vec3f_sub (TrVector3f vec1, TrVector3f vec2)
 inline TrVector3i tr_vec3i_mul (TrVector3i vec, float scalar)
 {
     return (TrVector3i) { 
-        .x = vec.x * scalar, 
-        .y = vec.y * scalar, 
+        .v2 = tr_vec2i_mul (vec.v2, scalar),
         .z = vec.z * scalar 
     };
 }
@@ -85,8 +80,7 @@ inline TrVector3i tr_vec3i_mul (TrVector3i vec, float scalar)
 inline TrVector3f tr_vec3f_mul (TrVector3f vec, float scalar)
 {
     return (TrVector3f) { 
-        .x = vec.x * scalar, 
-        .y = vec.y * scalar, 
+        .v2 = tr_vec2f_mul (vec.v2, scalar),
         .z = vec.z * scalar 
     };
 }
@@ -111,18 +105,43 @@ TrVector3f tr_vec3f_div (TrVector3f vec, float scalar)
 }
 
 /* magnitude of vector */
-float tr_vec3i_len (TrVector3i vec);
-float tr_vec3f_len (TrVector3f vec);
+inline float tr_vec3i_len (TrVector3i vec)
+{
+    return sqrt (vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
+}
+
+inline float tr_vec3f_len (TrVector3f vec)
+{
+    return sqrt (vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
+}
 
 /* normalize vector */
-TrVector3f tr_vec3f_norm (TrVector3f vec);
+TrVector3f tr_vec3f_norm (TrVector3f vec)
+{
+    return tr_vec3f_div (vec, tr_vec3f_len (vec));
+}
 
 /* dot product */
-float tr_vec3i_dot (TrVector3i vec1, TrVector3i vec2);
-float tr_vec3f_dot (TrVector3f vec1, TrVector3f vec2);
+inline float tr_vec3f_dot (TrVector3f vec1, TrVector3f vec2)
+{
+    return sqrt (vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z);
+}
 
 /* cross product */
-TrVector3f tr_vec3f_cross (TrVector3f vec1, TrVector3f vec2);
+inline TrVector3f tr_vec3f_cross (TrVector3f vec1, TrVector3f vec2)
+{
+    return (TrVector3f) {
+        .x = vec1.y * vec2.z - vec1.z * vec2.y,
+        .y = vec1.z * vec2.x - vec1.x * vec2.z,
+        .z = vec1.x * vec2.y - vec1.y * vec2.x
+    };
+}
 
 /* calculate normal */
-TrVector3f tr_vec3f_calc_normal (TrVector3f vert1, TrVector3f vert2, TrVector3f vert3);
+TrVector3f tr_vec3f_calc_normal (TrVector3f vert1, TrVector3f vert2, TrVector3f vert3)
+{
+    TrVector3f q = tr_vec3f_sub (vert2, vert1);
+    TrVector3f p = tr_vec3f_sub (vert3, vert1);
+
+    return tr_vec3f_cross (q, p);
+}
