@@ -36,3 +36,23 @@ inline TrVector3f tr_vec2f_to_vec3f (TrVector2f vec)
         .z = 1.0f
     };
 }
+
+TrVector3f tr_vec4f_to_vec3f (TrVector4f vec)
+{
+    float w = (vec.w != 0.0f) ? (1.0f / vec.w) : 0.0f;
+    return (TrVector3f) {
+        .x = vec.x * w,
+        .y = vec.y * w,
+        .z = vec.z * w
+    };
+}
+
+inline TrVector4f tr_vec3f_to_vec4f (TrVector3f vec)
+{
+    return (TrVector4f) {
+        .x = vec.x,
+        .y = vec.y,
+        .z = vec.z,
+        .w = 1.0f
+    };
+}

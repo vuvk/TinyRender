@@ -23,6 +23,7 @@
 
 #include "vectors/vector2.h"
 #include "vectors/vector3.h"
+#include "vectors/vector4.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -31,6 +32,8 @@ extern "C" {
 /* transformation from .. to .. */
 TrVector2f tr_vec3f_to_vec2f (TrVector3f vec);
 TrVector3f tr_vec2f_to_vec3f (TrVector2f vec);
+TrVector3f tr_vec4f_to_vec3f (TrVector4f vec);
+TrVector4f tr_vec3f_to_vec4f (TrVector3f vec);
 
 #ifdef __cplusplus
 }

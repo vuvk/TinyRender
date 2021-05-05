@@ -104,7 +104,6 @@ float tr_vec3f_len (TrVector3f vec);
 TrVector3f tr_vec3f_norm (TrVector3f vec);
 
 /* dot product */
-float tr_vec3i_dot (TrVector3i vec1, TrVector3i vec2);
 float tr_vec3f_dot (TrVector3f vec1, TrVector3f vec2);
 
 /* cross product */
