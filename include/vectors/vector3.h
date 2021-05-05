@@ -58,12 +58,12 @@ typedef struct _TrVector3f
 static const TrVector3i TR_ZERO3i = { 0 };
 static const TrVector3f TR_ZERO3f = { 0 };
 
-/* right vector */
-static const TrVector3f TR_RIGHT3f = { .x = 1.0f, .y = 0.0f, .z = 0.0f };
-/* up vector */
-static const TrVector3f TR_UP3f = { .x = 0.0f, .y = 1.0f, .z = 0.0f };
-/* forward vector */
-static const TrVector3f TR_FORWARD3f = { .x = 0.0f, .y = 0.0f, .z = 1.0f };
+static const TrVector3f TR_RIGHT3f    = { .x = 1.0f, .y = 0.0f, .z = 0.0f };
+static const TrVector3f TR_LEFT3f     = { .x =-1.0f, .y = 0.0f, .z = 0.0f };
+static const TrVector3f TR_UP3f       = { .x = 0.0f, .y = 1.0f, .z = 0.0f };
+static const TrVector3f TR_DOWN3f     = { .x = 0.0f, .y =-1.0f, .z = 0.0f };
+static const TrVector3f TR_FORWARD3f  = { .x = 0.0f, .y = 0.0f, .z = 1.0f };
+static const TrVector3f TR_BACKWARD3f = { .x = 0.0f, .y = 0.0f, .z =-1.0f };
 
 #ifdef __cplusplus
 extern "C" {
