@@ -28,12 +28,15 @@ typedef struct _TrVector3i
 {
     union
     {
-        union
+        struct
         {
-            struct _TrVector2i;
-            TrVector2i v2;
+            union
+            {
+                struct _TrVector2i;
+                TrVector2i v2;
+            };
+            int32 z;
         };
-        int32 z;
 
         int32 comp3[3];
     };
@@ -43,14 +46,17 @@ typedef struct _TrVector3f
 {
     union
     {
-        union
+        struct
         {
-            struct _TrVector2f;
-            TrVector2f v2;
+            union
+            {
+                struct _TrVector2f;
+                TrVector2f v2;
+            };
+            float z;
         };
-        float z;
 
-	float comp3[3];
+        float comp3[3];
     };
 } TrVector3f;
 
