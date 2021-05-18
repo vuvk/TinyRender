@@ -22,7 +22,7 @@
 #define __RENDER_H_INCLUDED
 
 #include "types.h"
-#include "vector.h"
+#include "vectors/vectors.h"
 #include "texture.h"
 //#include "threadpool.h"
 //#include "tinycthread.h"

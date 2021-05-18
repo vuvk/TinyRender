@@ -20,6 +20,29 @@
 
 #include "vectors/vector3.h"
 
+/* "constructors" */
+inline TrVector3i tr_vec3i_new (int32 x, int32 y, int32 z)
+{
+    return (TrVector3i) { .v2 = tr_vec2i_new (x, y), .z = z };
+    //return (TrVector3i) { .x = x, .y = y, .z = z };
+}
+
+inline TrVector3i tr_vec3i_newv (int32* v)
+{
+    return tr_vec3i_new (v[0], v[1], v[2]);
+}
+
+inline TrVector3f tr_vec3f_new (float x, float y, float z)
+{
+    return (TrVector3f) { .v2 = tr_vec2f_new (x, y), .z = z };
+    //return (TrVector3f) { .x = x, .y = y, .z = z };
+}
+
+inline TrVector3f tr_vec3f_newv (float* v)
+{
+    return tr_vec3f_new (v[0], v[1], v[2]);
+}
+
 /* equals */
 inline bool tr_vec3i_equals (TrVector3i vec1, TrVector3i vec2)
 {
@@ -130,11 +153,11 @@ inline float tr_vec3f_dot (TrVector3f vec1, TrVector3f vec2)
 /* cross product */
 inline TrVector3f tr_vec3f_cross (TrVector3f vec1, TrVector3f vec2)
 {
-    return (TrVector3f) {
-        .x = vec1.y * vec2.z - vec1.z * vec2.y,
-        .y = vec1.z * vec2.x - vec1.x * vec2.z,
-        .z = vec1.x * vec2.y - vec1.y * vec2.x
-    };
+    return tr_vec3f_new (
+        vec1.y * vec2.z - vec1.z * vec2.y,
+        vec1.z * vec2.x - vec1.x * vec2.z,
+        vec1.x * vec2.y - vec1.y * vec2.x
+    );
 }
 
 /* calculate normal */
@@ -144,4 +167,22 @@ TrVector3f tr_vec3f_calc_normal (TrVector3f vert1, TrVector3f vert2, TrVector3f 
     TrVector3f p = tr_vec3f_sub (vert3, vert1);
 
     return tr_vec3f_cross (q, p);
+/*
+    float Qx, Qy, Qz, Px, Py, Pz;
+    TrVector3f v;
+
+    Qx = vert2.x - vert1.x;
+    Qy = vert2.y - vert1.y;
+    Qz = vert2.z - vert1.z;
+
+    Px = vert3.x - vert1.x;
+    Py = vert3.y - vert1.y;
+    Pz = vert3.z - vert1.z;
+
+    v.x = Py * Qz - Pz * Qy;
+    v.y = Pz * Qx - Px * Qz;
+    v.z = Px * Qy - Py * Qx;
+
+    return v;
+*/
 }

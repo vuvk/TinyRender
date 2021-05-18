@@ -26,38 +26,38 @@
 
 typedef struct _TrVector3i
 {
-    union
-    {
-        struct
-        {
+    //union
+    //{
+    //    struct
+    //    {
             union
             {
                 struct _TrVector2i;
                 TrVector2i v2;
             };
             int32 z;
-        };
+    //    };
 
-        int32 a3[3];
-    };
+    //    int32 a3[3];
+    //};
 } TrVector3i;
 
 typedef struct _TrVector3f
 {
-    union
-    {
-        struct
-        {
+    //union
+    //{
+    //    struct
+    //    {
             union
             {
                 struct _TrVector2f;
                 TrVector2f v2;
             };
             float z;
-        };
+    //    };
 
-        float a3[3];
-    };
+    //    float a3[3];
+    //};
 } TrVector3f;
 
 /* zero vectors */
@@ -74,6 +74,12 @@ static const TrVector3f TR_BACKWARD3f = { .x = 0.0f, .y = 0.0f, .z =-1.0f };
 #ifdef __cplusplus
 extern "C" {
 #endif  //__cplusplus
+
+/* "constructors" */
+TrVector3i tr_vec3i_new (int32 x, int32 y, int32 z);
+TrVector3i tr_vec3i_newv (int32* v);
+TrVector3f tr_vec3f_new (float x, float y, float z);
+TrVector3f tr_vec3f_newv (float* v);
 
 /* equals */
 bool tr_vec3i_equals (TrVector3i vec1, TrVector3i vec2);

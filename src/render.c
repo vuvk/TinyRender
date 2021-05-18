@@ -254,18 +254,18 @@ void trRotateZf(float angle)
 
 
 /* DRAWING */
-static bool PointPrepare(SVector3f v3f, SVector2i* out)
+static bool PointPrepare(TrVector3f v3f, TrVector2i* out)
 {
-    SVector4f v4f = Vector3fToVector4f(v3f);
+    TrVector4f v4f = tr_vec3f_to_vec4f (v3f);
 
     v4f = Multiplyf_M4x4_V4f(transform, v4f);
-    v3f = Vector4fToVector3f(v4f);
+    v3f = tr_vec4f_to_vec3f (v4f);
 
-    SVector2f v2f = Vector3fToVector2f(v3f);
+    TrVector2f v2f = tr_vec3f_to_vec2f (v3f);
 
     int x0 = (int32)( v2f.x * trHalfWidth  + trHalfWidth);
     int y0 = (int32)(-v2f.y * trHalfHeight + trHalfHeight); // оси перевернуть!
-    *out = NewVector2i(x0, y0);
+    *out = tr_vec2i_new (x0, y0);
 
     // точка за плоскостями ближней и дальней
     if (v3f.z < trNearPlane || v3f.z > trFarPlane)
@@ -292,9 +292,11 @@ inline void trPoint2iv(int32* v, uint32 color)
 
 void trPoint3f(float x, float y, float z, uint32 color)
 {
-    SVector2i point;
-    if (PointPrepare(NewVector3f(x, y, z), &point))
+    TrVector2i point;
+    if (PointPrepare(tr_vec3f_new (x, y, z), &point))
+    {
         PutPixel(point.x, point.y, color, frameBuffer->pixels);
+    }
 }
 
 inline void trPoint3fv(float* v, uint32 color)
@@ -327,13 +329,15 @@ inline void trLineBicolor2iv(int32* v0, int32* v1, uint32 color0, uint32 color1)
 
 void trLine3f(float x0, float y0, float z0, float x1, float y1, float z1, uint32 color)
 {
-    SVector2i p0;
-    SVector2i p1;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
+    TrVector2i p0;
+    TrVector2i p1;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
 
     if (pointVis0 || pointVis1)
+    {
         trLine2iv((int32*)&p0, (int32*)&p1, color);
+    }
 }
 
 inline void trLine3fv(float* v0, float* v1, uint32 color)
@@ -343,10 +347,10 @@ inline void trLine3fv(float* v0, float* v1, uint32 color)
 
 void trLineBicolor3f(float x0, float y0, float z0, float x1, float y1, float z1, uint32 color0, uint32 color1)
 {
-    SVector2i p0;
-    SVector2i p1;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
+    TrVector2i p0;
+    TrVector2i p1;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
 
     if (pointVis0 || pointVis1)
         trLineBicolor2iv((int32*)&p0, (int32*)&p1, color0, color1);
@@ -401,12 +405,12 @@ inline void trTriangleTricolor2iv(int32* v0, int32* v1, int32* v2, uint32 color0
 
 void trTriangleColor3f(float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, uint32 color)
 {
-    SVector2i p0;
-    SVector2i p1;
-    SVector2i p2;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
-    bool pointVis2 = PointPrepare(NewVector3f(x2, y2, z2), &p2);
+    TrVector2i p0;
+    TrVector2i p1;
+    TrVector2i p2;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
+    bool pointVis2 = PointPrepare(tr_vec3f_new (x2, y2, z2), &p2);
 
     if (pointVis0 || pointVis1 || pointVis2)
         trTriangleColor2iv((int32*)&p0, (int32*)&p1, (int32*)&p2, color);
@@ -419,12 +423,12 @@ inline void trTriangleColor3fv(float* v0, float* v1, float* v2, uint32 color)
 
 void trTriangleTricolor3f(float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, uint32 color0, uint32 color1, uint32 color2)
 {
-    SVector2i p0;
-    SVector2i p1;
-    SVector2i p2;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
-    bool pointVis2 = PointPrepare(NewVector3f(x2, y2, z2), &p2);
+    TrVector2i p0;
+    TrVector2i p1;
+    TrVector2i p2;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
+    bool pointVis2 = PointPrepare(tr_vec3f_new (x2, y2, z2), &p2);
 
     if (pointVis0 || pointVis1 || pointVis2)
         trTriangleTricolor2iv((int32*)&p0, (int32*)&p1, (int32*)&p2, color0, color1, color2);
@@ -439,12 +443,12 @@ void trTriangleTexture3f(float x0, float y0, float z0, float x1, float y1, float
                          float u0, float v0, float u1, float v1, float u2, float v2,
                          STexture* texture)
 {
-    SVector2i p0;
-    SVector2i p1;
-    SVector2i p2;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
-    bool pointVis2 = PointPrepare(NewVector3f(x2, y2, z2), &p2);
+    TrVector2i p0;
+    TrVector2i p1;
+    TrVector2i p2;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
+    bool pointVis2 = PointPrepare(tr_vec3f_new (x2, y2, z2), &p2);
 
     if (pointVis0 || pointVis1 || pointVis2)
         DrawTriangleTextured(p0.x, p0.y, p1.x, p1.y, p2.x, p2.y,
@@ -492,14 +496,14 @@ inline void trQuadTexture2iv(int32*  v0, int32*  v1, int32*  v2, int32*  v3,
 
 void trQuadColor3f(float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, uint32 color)
 {
-    SVector2i p0;
-    SVector2i p1;
-    SVector2i p2;
-    SVector2i p3;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
-    bool pointVis2 = PointPrepare(NewVector3f(x2, y2, z2), &p2);
-    bool pointVis3 = PointPrepare(NewVector3f(x3, y3, z3), &p3);
+    TrVector2i p0;
+    TrVector2i p1;
+    TrVector2i p2;
+    TrVector2i p3;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
+    bool pointVis2 = PointPrepare(tr_vec3f_new (x2, y2, z2), &p2);
+    bool pointVis3 = PointPrepare(tr_vec3f_new (x3, y3, z3), &p3);
 
     if (pointVis0 || pointVis1 || pointVis2 || pointVis3)
         trQuadColor2iv((int32*)&p0, (int32*)&p1, (int32*)&p2, (int32*)&p3, color);
@@ -523,14 +527,14 @@ inline void trQuadFourcolor2iv(int32* v0, int32* v1, int32* v2, int32* v3, uint3
 
 void trQuadFourcolor3f(float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, uint32 color0, uint32 color1, uint32 color2, uint32 color3)
 {
-    SVector2i p0;
-    SVector2i p1;
-    SVector2i p2;
-    SVector2i p3;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
-    bool pointVis2 = PointPrepare(NewVector3f(x2, y2, z2), &p2);
-    bool pointVis3 = PointPrepare(NewVector3f(x3, y3, z3), &p3);
+    TrVector2i p0;
+    TrVector2i p1;
+    TrVector2i p2;
+    TrVector2i p3;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
+    bool pointVis2 = PointPrepare(tr_vec3f_new (x2, y2, z2), &p2);
+    bool pointVis3 = PointPrepare(tr_vec3f_new (x3, y3, z3), &p3);
 
     if (pointVis0 || pointVis1 || pointVis2 || pointVis3)
         trQuadFourcolor2iv((int32*)&p0, (int32*)&p1, (int32*)&p2, (int32*)&p3, color0, color1, color2, color3);
@@ -545,14 +549,14 @@ void trQuadTexture3f(float x0, float y0, float z0, float x1, float y1, float z1,
                      float u0, float v0, float u1, float v1, float u2, float v2, float u3, float v3,
                      STexture* texture)
 {
-    SVector2i p0;
-    SVector2i p1;
-    SVector2i p2;
-    SVector2i p3;
-    bool pointVis0 = PointPrepare(NewVector3f(x0, y0, z0), &p0);
-    bool pointVis1 = PointPrepare(NewVector3f(x1, y1, z1), &p1);
-    bool pointVis2 = PointPrepare(NewVector3f(x2, y2, z2), &p2);
-    bool pointVis3 = PointPrepare(NewVector3f(x3, y3, z3), &p3);
+    TrVector2i p0;
+    TrVector2i p1;
+    TrVector2i p2;
+    TrVector2i p3;
+    bool pointVis0 = PointPrepare(tr_vec3f_new (x0, y0, z0), &p0);
+    bool pointVis1 = PointPrepare(tr_vec3f_new (x1, y1, z1), &p1);
+    bool pointVis2 = PointPrepare(tr_vec3f_new (x2, y2, z2), &p2);
+    bool pointVis3 = PointPrepare(tr_vec3f_new (x3, y3, z3), &p3);
 
     if (pointVis0 || pointVis1 || pointVis2 || pointVis3)
         DrawQuadTextured(p0.x, p0.y, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y,

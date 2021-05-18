@@ -29,10 +29,9 @@
 extern "C" {
 #endif  //__cplusplus
 
-extern double deltaTime;
-extern int fps;
-
-double CalcFPS();
+double tr_update_time ();
+double tr_get_delta_time ();
+int tr_get_fps ();
 
 #ifdef __cplusplus
 }

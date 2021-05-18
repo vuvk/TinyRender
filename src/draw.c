@@ -45,7 +45,7 @@ typedef struct
 typedef struct
 {
     int32 x0, x1;
-    SVector2f uv0, uv1;
+    TrVector2f uv0, uv1;
 } SBorderBitUV;
 
 // аргументы для многопоточного рендеринга
@@ -69,15 +69,15 @@ void DrawLine(int32 x0, int32 y0, int32 x1, int32 y1, uint32 color, void* pixels
     bool steep = false;
     if (abs(x0 - x1) < abs(y0 - y1))
     {
-        SWAP(&x0, &y0);
-        SWAP(&x1, &y1);
+        tr_swap (&x0, &y0);
+        tr_swap (&x1, &y1);
         steep = true;
     }
 
     if (x0 > x1)
     {
-        SWAP(&x0, &x1);
-        SWAP(&y0, &y1);
+        tr_swap (&x0, &x1);
+        tr_swap (&y0, &y1);
     }
 
     int dx = x1 - x0;
@@ -254,7 +254,7 @@ static void DrawHorLineBicolor(int32 x0, int32 x1, int32 y, uint32 color0, uint3
     *(int*)p = color1;
 }
 
-static void DrawHorLineTextured(int32 x0, int32 x1, int32 y, SVector2f uv0, SVector2f uv1, STexture* texture, void* pixels)
+static void DrawHorLineTextured(int32 x0, int32 x1, int32 y, TrVector2f uv0, TrVector2f uv1, STexture* texture, void* pixels)
 {
     if (y < 0 || y > trHeight - 1)
         return;
@@ -265,11 +265,12 @@ static void DrawHorLineTextured(int32 x0, int32 x1, int32 y, SVector2f uv0, SVec
     uint8* p = ((uint8*)pixels) + y * trPitch + x0 * trBpp;
     int len = x1 - x0;
 
-    register SVector2f uv = uv0;
-    register SVector2f uvStep = {
-                                    (uv1.x - uv0.x) / len,
-                                    (uv1.y - uv0.y) / len
-                                };
+    TrVector2f uv = uv0;
+    float lenInverse = 1.0f / len;
+    TrVector2f uvStep = tr_vec2f_new (
+        (uv1.x - uv0.x) * lenInverse,
+        (uv1.y - uv0.y) * lenInverse
+    );
 
     register int texX = 0, texY = 0;
     register int u, v;
@@ -277,10 +278,10 @@ static void DrawHorLineTextured(int32 x0, int32 x1, int32 y, SVector2f uv0, SVec
     register int texW = texture->width,
                  texH = texture->height;
     register int texPitch = texture->pitch;
-    register uint8* texPixels = texture->pixels;
+    uint8* texPixels = texture->pixels;
 
     // если строка/колонка текстуры не изменилась, то зачем пересчитывать?
-    register uint8* texCol = texPixels;
+    uint8* texCol = texPixels;
     register int texRow = 0;
 
     // проход
@@ -314,8 +315,8 @@ static void DrawBorderBit(int32 x0, int32 y0, int32 x1, int32 y1, uint32 h, SBor
 {
     if (y0 > y1)
     {
-        SWAP(&x0, &x1);
-        SWAP(&y0, &y1);
+        tr_swap (&x0, &x1);
+        tr_swap (&y0, &y1);
     }
 
     int len = y1 - y0 + 1;
@@ -354,9 +355,9 @@ static void DrawBorderBitColor(int32 x0, int32 y0, int32 x1, int32 y1, uint32 co
 {
     if (y0 > y1)
     {
-        SWAP(&x0, &x1);
-        SWAP(&y0, &y1);
-        SWAP((int32*)&color0, (int32*)&color1);
+        tr_swap (&x0, &x1);
+        tr_swap (&y0, &y1);
+        tr_swap ((int32*)&color0, (int32*)&color1);
     }
 
     int len = y1 - y0 + 1;
@@ -418,29 +419,30 @@ static void DrawBorderBitColor(int32 x0, int32 y0, int32 x1, int32 y1, uint32 co
     }
 }
 
-static void DrawBorderBitUV(int x0, int y0, int x1, int y1, SVector2f uv0, SVector2f uv1, SBorderBitUV* borders)
+static void DrawBorderBitUV(int32 x0, int32 y0, int32 x1, int32 y1, TrVector2f uv0, TrVector2f uv1, SBorderBitUV* borders)
 {
     if (y0 > y1)
     {
-        SWAP(&x0, &x1);
-        SWAP(&y0, &y1);
-        SWAP(&uv0.x, &uv1.x);
-        SWAP(&uv0.y, &uv1.y);
+        tr_swap (&x0, &x1);
+        tr_swap (&y0, &y1);
+        tr_swap (&uv0.x, &uv1.x);
+        tr_swap (&uv0.y, &uv1.y);
     }
 
     int len = y1 - y0 + 1;
-    double lenInverse = 1.0 / len;
+    float lenInverse = 1.0f / len;
 
-    register SVector2f uv = uv0;
-    register SVector2f uvStep = { uv1.x - uv0.x, uv1.y - uv0.y };
-    uvStep.x *= lenInverse;
-    uvStep.y *= lenInverse;
+    TrVector2f uv = uv0;
+    TrVector2f uvStep = tr_vec2f_new (
+        (uv1.x - uv0.x) * lenInverse,
+        (uv1.y - uv0.y) * lenInverse
+    );
 
     register int _x;
     register double x = x0;
     register double dx = (double)(x1 - x0) * lenInverse;
 
-    register SBorderBitUV* p = borders + y0;
+    SBorderBitUV* p = borders + y0;
     for (register int i = 0; i < len; ++i, ++p)
     {
         _x = (int)x;
@@ -791,7 +793,7 @@ void DrawTriangleColor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
-    p = borders;
+    //p = borders;
 
     DrawBorderBit(x0 - minX, y0 - minY, x1 - minX, y1 - minY, bufHeight, borders);
     DrawBorderBit(x1 - minX, y1 - minY, x2 - minX, y2 - minY, bufHeight, borders);
@@ -852,7 +854,7 @@ void DrawTriangleTricolor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int3
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
-    p = borders;
+    //p = borders;
 
     DrawBorderBitColor(x0 - minX, y0 - minY, x1 - minX, y1 - minY, color0, color1, bufHeight, borders);
     DrawBorderBitColor(x1 - minX, y1 - minY, x2 - minX, y2 - minY, color1, color2, bufHeight, borders);
@@ -891,11 +893,11 @@ void DrawTriangleTextured(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int3
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
-    p = borders;
+    //p = borders;
 
-    SVector2f uv0 = NewVector2f(u0, v0);
-    SVector2f uv1 = NewVector2f(u1, v1);
-    SVector2f uv2 = NewVector2f(u2, v2);
+    TrVector2f uv0 = tr_vec2f_new (u0, v0);
+    TrVector2f uv1 = tr_vec2f_new (u1, v1);
+    TrVector2f uv2 = tr_vec2f_new (u2, v2);
 
     DrawBorderBitUV(x0 - minX, y0 - minY, x1 - minX, y1 - minY, uv0, uv1, borders);
     DrawBorderBitUV(x1 - minX, y1 - minY, x2 - minX, y2 - minY, uv1, uv2, borders);
@@ -938,7 +940,7 @@ void DrawQuadColor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y2, i
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
-    p = borders;
+    //p = borders;
 
     DrawBorderBit(x0 - minX, y0 - minY, x1 - minX, y1 - minY, bufHeight, borders);
     DrawBorderBit(x1 - minX, y1 - minY, x2 - minX, y2 - minY, bufHeight, borders);
@@ -1003,7 +1005,7 @@ void DrawQuadFourcolor(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
-    p = borders;
+    //p = borders;
 
     DrawBorderBitColor(x0 - minX, y0 - minY, x1 - minX, y1 - minY, color0, color1, bufHeight, borders);
     DrawBorderBitColor(x1 - minX, y1 - minY, x2 - minX, y2 - minY, color1, color2, bufHeight, borders);
@@ -1049,10 +1051,10 @@ void DrawQuadTextured(int32 x0, int32 y0, int32 x1, int32 y1, int32 x2, int32 y2
     for (register int i = 0; i < bufHeight; ++i, ++p)
         p->x0 = p->x1 = -99999;
 
-    SVector2f uv0 = { u0, v0 };
-    SVector2f uv1 = { u1, v1 };
-    SVector2f uv2 = { u2, v2 };
-    SVector2f uv3 = { u3, v3 };
+    TrVector2f uv0 = tr_vec2f_new (u0, v0);
+    TrVector2f uv1 = tr_vec2f_new (u1, v1);
+    TrVector2f uv2 = tr_vec2f_new (u2, v2);
+    TrVector2f uv3 = tr_vec2f_new (u3, v3);
 
     DrawBorderBitUV(x0 - minX, y0 - minY, x1 - minX, y1 - minY, uv0, uv1, borders);
     DrawBorderBitUV(x1 - minX, y1 - minY, x2 - minX, y2 - minY, uv1, uv2, borders);

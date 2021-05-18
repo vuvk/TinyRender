@@ -26,38 +26,38 @@
 
 typedef struct _TrVector4i
 {
-    union
-    {
-        struct
-        {
+    //union
+    //{
+    //    struct
+    //    {
             union
             {
                 struct _TrVector3i;
                 TrVector3i v3;
             };
             int32 w;
-        };
+    //    };
 
-        int32 a4[4];
-    };
+    //    int32 a4[4];
+    //};
 } TrVector4i;
 
 typedef struct _TrVector4f
 {
-    union
-    {
-        struct
-        {
+    //union
+    //{
+    //    struct
+    //    {
             union
             {
                 struct _TrVector3f;
                 TrVector3f v3;
             };
             float w;
-        };
+    //    };
 
-        float a4[4];
-    };
+    //   float a4[4];
+    //};
 } TrVector4f;
 
 /* zero vectors */
@@ -67,6 +67,12 @@ static const TrVector4f TR_ZERO4f = { 0 };
 #ifdef __cplusplus
 extern "C" {
 #endif  //__cplusplus
+
+/* "constructors" */
+TrVector4i tr_vec4i_new (int32 x, int32 y, int32 z, int32 w);
+TrVector4i tr_vec4i_newv (int32* v);
+TrVector4f tr_vec4f_new (float x, float y, float z, float w);
+TrVector4f tr_vec4f_newv (float* v);
 
 /* equals */
 bool tr_vec4i_equals (TrVector4i vec1, TrVector4i vec2);

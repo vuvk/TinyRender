@@ -48,7 +48,9 @@ void LoadIdentity_M4x4(TMatrix4x4 matrix)
 inline void Multiplyf_Scalar(TMatrix4x4 matrix, float scalar)
 {
     for (uint8 i = 0; i < 16; ++i)
+    {
         matrix[i] *= scalar;
+    }
 }
 
 void Multiplyf_M4x4(TMatrix4x4 dst, const TMatrix4x4 src1, const TMatrix4x4 src2)
@@ -56,18 +58,18 @@ void Multiplyf_M4x4(TMatrix4x4 dst, const TMatrix4x4 src1, const TMatrix4x4 src2
 
     TMatrix4x4 temp = {0};
 
-	for (int col = 0; col < 4; ++col)
-	{
-		for (int row = 0; row < 4; ++row)
-		{
-			temp[col * 4 + row] = 0.0f;
+    for (int col = 0; col < 4; ++col)
+    {
+        for (int row = 0; row < 4; ++row)
+        {
+            temp[col * 4 + row] = 0.0f;
 
-			for (int i = 0; i < 4; ++i)
+            for (int i = 0; i < 4; ++i)
                 temp[col * 4 + row] += src1[i * 4 + row] * src2[col * 4 + i];
-		}
-	}
+        }
+    }
 
-	memcpy(dst, temp, sizeof(TMatrix4x4));
+    memcpy(dst, temp, sizeof(TMatrix4x4));
 
     /*
     TMatrix4x4 result = {0};
@@ -95,11 +97,11 @@ void Multiplyf_M4x4(TMatrix4x4 dst, const TMatrix4x4 src1, const TMatrix4x4 src2
                              src1 [3 + 3 * 3]*src2 [i + 3 * 3];
     }
 
-	memcpy(dst, result, sizeof(TMatrix4x4));
-	*/
+    memcpy(dst, result, sizeof(TMatrix4x4));
+    */
 }
 
-SVector4f Multiplyf_M4x4_V4f(const TMatrix4x4 matrix, const SVector4f vec)
+TrVector4f Multiplyf_M4x4_V4f(const TMatrix4x4 matrix, const TrVector4f vec)
 {
 /*
     | a b c d |   | x |     | a*x + b*y + c*z + d*w |
@@ -120,15 +122,19 @@ SVector4f Multiplyf_M4x4_V4f(const TMatrix4x4 matrix, const SVector4f vec)
                   matrix[12 + i] * vec.w;
     }
 
-    memcpy(result, temp, sizeof(temp));
+    memcpy (result, temp, sizeof (temp));
 
     if (result[3] != 0.0f && result[3] != 1.0f)
     {
         float w;
         if (temp[3] != 0.0f)
-            w = 1.0 / temp[3];
+        {
+            w = 1.0f / temp[3];
+        }
         else
-            w = 1.0;
+        {
+            w = 1.0f;
+        }
 
         for (i = 0; i < 4; i++)
         {
@@ -136,7 +142,7 @@ SVector4f Multiplyf_M4x4_V4f(const TMatrix4x4 matrix, const SVector4f vec)
         }
     }
 
-    return *(SVector4f*)result;
+    return *(TrVector4f*)result;
 }
 
 void Translatef_M4x4(TMatrix4x4 matrix, float x, float y, float z)
@@ -152,7 +158,7 @@ void Translatef_M4x4(TMatrix4x4 matrix, float x, float y, float z)
     Multiplyf_M4x4(matrix, matrix, temp);
 }
 
-void Translatev_M4x4(TMatrix4x4 matrix, SVector3f translate)
+void Translatev_M4x4(TMatrix4x4 matrix, TrVector3f translate)
 {
     TMatrix4x4 temp;
 
@@ -179,7 +185,7 @@ void Scalef_M4x4(TMatrix4x4 matrix, float x, float y, float z)
     Multiplyf_M4x4(matrix, matrix, temp);
 }
 
-void Scalev_M4x4(TMatrix4x4 matrix, SVector3f scale)
+void Scalev_M4x4(TMatrix4x4 matrix, TrVector3f scale)
 {
     TMatrix4x4 temp;
 
@@ -199,7 +205,7 @@ void Rotatef_M4x4(TMatrix4x4 matrix, float angle, float x, float y, float z)
     float s = sin(angle);
     float c = cos(angle);
 
-    SVector3f vector = NormalizeVector3f(NewVector3f(x, y, z));
+    TrVector3f vector = tr_vec3f_norm (tr_vec3f_new (x, y, z));
 
     float xn = vector.x;
     float yn = vector.y;
@@ -281,16 +287,16 @@ void RotateRzf_M4x4(TMatrix4x4 matrix, float angle)
 // "camera"
 bool Orthof_M4x4(TMatrix4x4 result, const float left, const float right, const float bottom, const float top, const float zNear, const float zFar)
 {
-	if ((right - left) == 0.0f ||
+    if ((right - left) == 0.0f ||
         (top - bottom) == 0.0f ||
         (zFar - zNear) == 0.0f)
-	{
-		return false;
-	}
+    {
+        return false;
+    }
 
-	result[1] = result[2] = result[3]  =
-	result[4] = result[6] = result[7]  =
-	result[8] = result[9] = result[11] = 0.0f;
+    result[1] = result[2] = result[3]  =
+    result[4] = result[6] = result[7]  =
+    result[8] = result[9] = result[11] = 0.0f;
 
     result[0]  =  2.0f / (right - left);
     result[5]  =  2.0f / (top - bottom);
@@ -305,21 +311,21 @@ bool Orthof_M4x4(TMatrix4x4 result, const float left, const float right, const f
 
 bool Frustumf_M4x4(TMatrix4x4 result, const float left, const float right, const float bottom, const float top, const float zNear, const float zFar)
 {
-	if ((right - left) == 0.0f ||
+    if ((right - left) == 0.0f ||
         (top - bottom) == 0.0f ||
         (zFar - zNear) == 0.0f)
-	{
-		return false;
-	}
+    {
+        return false;
+    }
 
-	result[1]  = result[2]  = result[3]  =
-	result[4]  = result[6]  = result[7]  =
-	result[12] = result[13] = result[15] = 0.0f;
+    result[1]  = result[2]  = result[3]  =
+    result[4]  = result[6]  = result[7]  =
+    result[12] = result[13] = result[15] = 0.0f;
 
-	result[0]  =  2.0f * zNear / (right - left);
+    result[0]  =  2.0f * zNear / (right - left);
     result[5]  =  2.0f * zNear / (top - bottom);
-    result[8]  =  (right + left)  / (right - left);
-    result[9]  =  (top + bottom)  / (top - bottom);
+    result[8]  =  (right + left) / (right - left);
+    result[9]  =  (top + bottom) / (top - bottom);
     result[10] = -(zFar + zNear) / (zFar - zNear);
     result[11] = -1.0f;
     result[14] = -(2.0f * zFar * zNear) / (zFar - zNear);
@@ -331,7 +337,7 @@ bool Perspectivef_M4x4(TMatrix4x4 result, const float fovy, const float aspect, 
 {
     if (fovy <= 0.0f || fovy >= 180.0f)
     {
-    	return false;
+        return false;
     }
 
     float xmin, xmax, ymin, ymax;
@@ -345,25 +351,21 @@ bool Perspectivef_M4x4(TMatrix4x4 result, const float fovy, const float aspect, 
 
 void LookAtf_M4x4(TMatrix4x4 result, const float eyeX, const float eyeY, const float eyeZ, const float centerX, const float centerY, const float centerZ, const float upX, const float upY, const float upZ)
 {
-    SVector3f forward, side, up;
+    TrVector3f forward = tr_vec3f_new (
+        centerX - eyeX,
+        centerY - eyeY,
+        centerZ - eyeZ
+    );
+    forward = tr_vec3f_norm (forward);
 
-    forward.x = centerX - eyeX;
-    forward.y = centerY - eyeY;
-    forward.z = centerZ - eyeZ;
+    TrVector3f up = tr_vec3f_new (upX, upY, upZ);
 
-    forward = NormalizeVector3f(forward);
+    TrVector3f side = tr_vec3f_norm (tr_vec3f_cross (forward, up));
 
-    up.x = upX;
-    up.y = upY;
-    up.z = upZ;
+    up = tr_vec3f_cross (side, forward);
 
-    side = CrossVector3f(forward, up);
-    side = NormalizeVector3f(side);
-
-    up = CrossVector3f(side, forward);
-
-	result[3] = result[7] = result[11] = result[12] =
-	result[13] = result[14] = 0.0f;
+    result[3] = result[7] = result[11] = result[12] =
+    result[13] = result[14] = 0.0f;
 
     result[0] =  side.x;
     result[1] =  up.x;
@@ -379,7 +381,7 @@ void LookAtf_M4x4(TMatrix4x4 result, const float eyeX, const float eyeY, const f
     Translatef_M4x4(result, -eyeX, -eyeY, -eyeZ);
 }
 
-inline void LookAtv_M4x4(TMatrix4x4 result, const SVector3f eye, const SVector3f center, const SVector3f up)
+inline void LookAtv_M4x4(TMatrix4x4 result, const TrVector3f eye, const TrVector3f center, const TrVector3f up)
 {
     LookAtf_M4x4(result, eye.x, eye.y, eye.z, center.x, center.y, center.z, up.x, up.y, up.z);
 }

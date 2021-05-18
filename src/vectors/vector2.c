@@ -20,6 +20,27 @@
 
 #include "vectors/vector2.h"
 
+/* "constructors" */
+inline TrVector2i tr_vec2i_new (int32 x, int32 y)
+{
+    return (TrVector2i) { .x = x, .y = y };
+}
+
+inline TrVector2i tr_vec2i_newv (int32* v)
+{
+    return tr_vec2i_new (v[0], v[1]);
+}
+
+inline TrVector2f tr_vec2f_new (float x, float y)
+{
+    return (TrVector2f) { .x = x, .y = y };
+}
+
+inline TrVector2f tr_vec2f_newv (float* v)
+{
+    return tr_vec2f_new (v[0], v[1]);
+}
+
 /* equals */
 inline bool tr_vec2i_equals (TrVector2i vec1, TrVector2i vec2)
 {

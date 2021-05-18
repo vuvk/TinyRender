@@ -11,14 +11,20 @@
 	"render_private.h"
 	"fps.h"
 
+1507192155 ivate.h"
+
 1506511795 d:\progs\src\c\tinyrender\include\render.h
 	"types.h"
 	"vector.h"
 	"texture.h"
 
+1507192125 "
+
 1502795187 d:\progs\src\c\tinyrender\include\types.h
 	<stdint.h>
 	<stdbool.h>
+
+1502795187 >
 
 1506587132 source:d:\progs\src\c\tinyrender\src\render.c
 	<stdio.h>
@@ -67,6 +73,8 @@
 	"begin_code.h"
 	"close_code.h"
 
+1506106372 e.h"
+
 1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
@@ -103,6 +111,8 @@
 
 1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_config.h
 	"SDL_platform.h"
+
+1506106372 orm.h"
 
 1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
@@ -250,8 +260,12 @@
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
+1506106370 ode.h"
+
 1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
+
+1506106372 c.h"
 
 1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
@@ -277,6 +291,8 @@
 1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
+
+1506106372 .h"
 
 1506106370 d:\progs\src\c\tinyrender\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
@@ -363,6 +379,8 @@
 	"color.h"
 	"utils.h"
 
+1507192155 
+
 1506446692 d:\progs\src\c\tinyrender\include\color.h
 	"types.h"
 	"render_private.h"
@@ -373,6 +391,8 @@
 	"color.h"
 	"vector.h"
 	"libfixmath/fixmath.h"
+
+1507026897 h/fixmath.h"
 
 1506443444 d:\progs\src\c\tinyrender\include\vector.h
 	"types.h"
@@ -755,6 +775,8 @@
 	"vector.h"
 	"SDL2/SDL_stdinc.h"
 
+1506078785 stdinc.h"
+
 1506443444 b:\mein_docs\my_progs\c\tinyrender\include\vector.h
 	"types.h"
 
@@ -849,6 +871,8 @@
 	"SDL2/SDL.h"
 	"fps.h"
 
+1507197749 h"
+
 1506229527 b:\mein_docs\my_progs\c\tinyrender\include\fps.h
 	"types.h"
 
@@ -911,6 +935,8 @@
 	"fix16.h"
 	"fix16_trig_sin_lut.h"
 
+1502208928 g_sin_lut.h"
+
 1502208928 d:\progs\src\c\tinyrender\include\libfixmath\fix16_trig_sin_lut.h
 
 1502208928 source:d:\progs\src\c\tinyrender\include\libfixmath\fract32.c
@@ -925,6 +951,8 @@
 	<unistd.h>
 	"threadpool/threadpool.h"
 	"tinycthread/tinycthread.h"
+
+1506511226 ad/tinycthread.h"
 
 1506510509 d:\progs\src\c\tinyrender\include\threadpool\threadpool.h
 
@@ -943,6 +971,8 @@
 	<errno.h>
 	<process.h>
 	<sys/timeb.h>
+
+1506511330 .h>
 
 1506106372 d:\progs\src\c\tinyrender\include\sdl2\sdl_shape.h
 	"SDL_stdinc.h"
@@ -1667,6 +1697,8 @@
 	"SDL_config_os2.h"
 	"SDL_config_minimal.h"
 
+1326110988 g_minimal.h"
+
 1325738640 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_platform.h
 
 1326110994 d:\progs\src\c\tinyrender_sdl\include\sdl\sdl_config_win32.h
@@ -2138,4 +2170,191 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fix16.c
+	"fix16.h"
+	"int64.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fix16.h
+	<stdint.h>
+	"fix16.hpp"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/int64.h
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fix16_exp.c
+	"fix16.h"
+	<stdbool.h>
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fix16_sqrt.c
+	"fix16.h"
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fix16_str.c
+	"fix16.h"
+	<stdbool.h>
+	<ctype.h>
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fix16_trig.c
+	<limits.h>
+	"fix16.h"
+	"fix16_trig_sin_lut.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fix16_trig_sin_lut.h
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fract32.c
+	"fract32.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fract32.h
+	<stdint.h>
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/uint32.c
+	"uint32.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/uint32.h
+	<stdint.h>
+
+1621242515 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/color.c
+	"color.h"
+	"utils.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/color.h
+	"types.h"
+	"render_private.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/types.h
+	<stdint.h>
+	<stdbool.h>
+
+1621243645 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/render_private.h
+	<SDL2/SDL.h>
+	"matrix.h"
+
+1620963011 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/matrix.h
+	"vectors/vector3.h"
+	"vectors/vector4.h"
+
+1621244906 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/vectors/vector3.h
+	"types.h"
+	"vectors/vector2.h"
+
+1621244858 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/vectors/vector2.h
+	"types.h"
+
+1621244935 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/vectors/vector4.h
+	"types.h"
+	"vectors/vector3.h"
+
+1620968443 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/utils.h
+	<math.h>
+	"types.h"
+	"color.h"
+	"vectors/vectors.h"
+	"libfixmath/fixmath.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/vectors/vectors.h
+	"vectors/vector2.h"
+	"vectors/vector3.h"
+	"vectors/vector4.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/libfixmath/fixmath.h
+	"uint32.h"
+	"int64.h"
+	"fract32.h"
+	"fix16.h"
+
+1621244703 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/draw.c
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<malloc.h>
+	"libfixmath/fixmath.h"
+	"draw.h"
+	"utils.h"
+	"render_private.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/draw.h
+	<stdio.h>
+	"SDL2/SDL.h"
+	"types.h"
+	"texture.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/texture.h
+	"types.h"
+
+1621242731 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/fps.c
+	<stdio.h>
+	"SDL2/SDL.h"
+	"fps.h"
+
+1620986536 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/fps.h
+	"types.h"
+
+1621248088 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/main.c
+	<stdio.h>
+	<stdlib.h>
+	"types.h"
+	"utils.h"
+	"color.h"
+	"render.h"
+	"render_private.h"
+	"fps.h"
+	"SDL2/SDL.h"
+
+1620982918 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/render.h
+	"types.h"
+	"vectors/vectors.h"
+	"texture.h"
+
+1620990645 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/matrix.c
+	<string.h>
+	<math.h>
+	"matrix.h"
+	"types.h"
+	"utils.h"
+
+1620989578 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/render.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<math.h>
+	"SDL2/SDL.h"
+	"utils.h"
+	"matrix.h"
+	"draw.h"
+	"render.h"
+	"render_private.h"
+
+1620962581 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/texture.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"texture.h"
+	"utils.h"
+	"render_private.h"
+
+1621242494 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SDL2/SDL.h"
+	"utils.h"
+	"defines.h"
+
+1620962581 /home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/include/defines.h
+
+1620969175 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/vectors/vector2.c
+	<math.h>
+	"vectors/vector2.h"
+
+1620990185 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/vectors/vector3.c
+	<math.h>
+	"vectors/vector3.h"
+
+1620989823 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/vectors/vector4.c
+	<math.h>
+	"vectors/vector4.h"
+
+1620990263 source:/home/tai-prg3/Disk_S/Uran/TEXT/TOOLS/tai-prg3/TinyRender/src/vectors/vectors.c
+	"vectors/vectors.h"
 

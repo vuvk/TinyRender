@@ -22,37 +22,37 @@
 TrVector2f tr_vec3f_to_vec2f (TrVector3f vec)
 {
     float z = (vec.z != 0.0f) ? (1.0f / vec.z) : 0.0f;
-    return (TrVector2f) {
-        .x = vec.x * z,
-        .y = vec.y * z
-    };
+    return tr_vec2f_new (
+        vec.x * z,
+        vec.y * z
+    );
 }
 
-inline TrVector3f tr_vec2f_to_vec3f (TrVector2f vec)
+TrVector3f tr_vec2f_to_vec3f (TrVector2f vec)
 {
-    return (TrVector3f) {
-        .x = vec.x,
-        .y = vec.y,
-        .z = 1.0f
-    };
+    return tr_vec3f_new (
+        vec.x,
+        vec.y,
+        0.0f
+    );
 }
 
 TrVector3f tr_vec4f_to_vec3f (TrVector4f vec)
 {
     float w = (vec.w != 0.0f) ? (1.0f / vec.w) : 0.0f;
-    return (TrVector3f) {
-        .x = vec.x * w,
-        .y = vec.y * w,
-        .z = vec.z * w
-    };
+    return tr_vec3f_new (
+        vec.x * w,
+        vec.y * w,
+        vec.z * w
+    );
 }
 
-inline TrVector4f tr_vec3f_to_vec4f (TrVector3f vec)
+TrVector4f tr_vec3f_to_vec4f (TrVector3f vec)
 {
-    return (TrVector4f) {
-        .x = vec.x,
-        .y = vec.y,
-        .z = vec.z,
-        .w = 1.0f
-    };
+    return tr_vec4f_new (
+        vec.x,
+        vec.y,
+        vec.z,
+        1.0f
+    );
 }

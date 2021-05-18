@@ -21,7 +21,7 @@
 #ifndef __RENDER_PRIVATE_H_INCLUDED
 #define __RENDER_PRIVATE_H_INCLUDED
 
-#include "SDL2/SDL.h"
+#include <SDL2/SDL.h>
 
 //#include "threadpool/threadpool.h"
 //#include "tinycthread/tinycthread.h"

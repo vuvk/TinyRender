@@ -16,6 +16,8 @@
 
 */
 
+// https://masandilov.ru/opengl/opengl-frustum
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -29,13 +31,15 @@
 #include "SDL2/SDL.h"
 
 
-#define SCREEN_WIDTH  800
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH  640
+#define SCREEN_HEIGHT 480
 #define SCREEN_BITS   32
 
 
 int main(int args, char** argv)
 {
+    float time_for_update_fps = 0.0f;
+
     trInit("tiny renderer", SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BITS);
     trClearColorb(0, 0, 0);
     trClear();
@@ -47,23 +51,24 @@ int main(int args, char** argv)
     bool running = true;
     SDL_Event evt;
 
-    /*
-    float x  = 0,   y  = 0,   z  = 0;
+
+    float x  = 0,   y  = 0/*,   z  = 0*/;
     float x2 = 0.1, y2 = 0,   z2 = 0;
     float x3 = 0.1, y3 = 0.1, z3 = 0;
 
-    SVector3f f0 = {0, 0, 0};
-    SVector3f f1 = {0, 0, 0};
-    */
+    //TrVector3f f0 = {0, 0, 0};
+    //TrVector3f f1 = {0, 0, 0};
+
 
     STexture* texture0 = TextureCreate();
-    TextureLoadFromFile(texture0, "images/texture0.bmp");
+    //TextureLoadFromFile(texture0, "images/texture0.bmp");
+    TextureLoadFromFile(texture0, "bin/images/texture0.bmp");
 
     float z = 1.5;
     float angle = 0;
     while (running)
     {
-        //trClear();
+        trClear();
 
         trMatrixMode(MODELVIEW_MATRIX);
         trLoadIdentity();
@@ -89,7 +94,7 @@ int main(int args, char** argv)
         //trLine2i(300, 100, 150, 250, RGB_TO_COLOR(255, 10, 100));
         //trLine2i(100, 100, 150, 250, RGB_TO_COLOR(255, 10, 100));
 
-        trQuadColor2i(500, 300, 700, 500, 600, 590, 400, 500, RGB_TO_COLOR(100, 100, 100));
+        //trQuadColor2i(500, 300, 700, 500, 600, 590, 400, 500, RGB_TO_COLOR(100, 100, 100));
 
 
 
@@ -108,7 +113,7 @@ int main(int args, char** argv)
 
 
         // textured
-        /*
+
         trTriangleTexture2i(100, 100, 500, 100, 250, 350, 0.0, 0.0, 1.0, 0.0, 0.5, 0.5, texture0);
         trQuadTexture2i(200, 200,
                         500, 200,
@@ -119,19 +124,19 @@ int main(int args, char** argv)
                         1.0, 0.0,
                         1.0, 1.0,
                         0.0, 1.0, texture0);
-        */
+
 
         // ------ 3D ------
 
         // 3D точки тест
-        /*
+     /*
         trPoint3f(x, y, z, RGB_TO_COLOR(255, 0, 255));
         trPoint3f(x2, y2, z2, RGB_TO_COLOR(255, 0, 255));
-        */
+       */
 
 
         // кубик из линий
-        /*
+/*
         trLine3f(-0.5, -0.5, -0.5,
                   0.5, -0.5, -0.5, RGB_TO_COLOR(255, 0, 0));
         trLine3f( 0.5, -0.5, -0.5,
@@ -158,7 +163,7 @@ int main(int args, char** argv)
                  -0.5,  0.5,  0.5, RGB_TO_COLOR(50, 255, 0));
         trLine3f( 0.5,  0.5, -0.5,
                   0.5,  0.5,  0.5, RGB_TO_COLOR(50, 255, 0));
-        */
+*/
 
         /*
         // one color
@@ -183,6 +188,7 @@ int main(int args, char** argv)
                              RGB_TO_COLOR(255, 0, 0),
                              RGB_TO_COLOR(0, 255, 0),
                              RGB_TO_COLOR(0, 0, 255));
+
         trQuadFourcolor3f(-0.5, -0.5, 0.0,
                            0.5, -0.5, 0.0,
                            0.5,  0.5, 0.0,
@@ -263,10 +269,19 @@ int main(int args, char** argv)
             }
         }
 
-        CalcFPS();
-        char buffer[50];
-        sprintf(buffer, "tinyRender fps - %d", fps);
-        SDL_SetWindowTitle(window, buffer);
+        tr_update_time ();
+
+        if (time_for_update_fps < 0.5f)
+        {
+            time_for_update_fps += tr_get_delta_time ();
+        }
+        else
+        {
+            char buffer[50];
+            sprintf(buffer, "tinyRender fps - %d", tr_get_fps ());
+            SDL_SetWindowTitle(window, buffer);
+            time_for_update_fps -= 0.5f;
+        }
     }
 
     trClose();

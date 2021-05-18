@@ -25,20 +25,20 @@
 
 typedef struct _TrVector2i
 {
-    union
-    {
+    //union
+    //{
         int32 x, y;
-        int32 a2[2];
-    };
+    //    int32 a2[2];
+    //};
 } TrVector2i;
 
 typedef struct _TrVector2f
 {
-    union
-    {
+    //union
+    //{
         float x, y;
-        float a2[2];
-    };
+    //    float a2[2];
+    //};
 } TrVector2f;
 
 /* zero vectors */
@@ -48,6 +48,12 @@ static const TrVector2f TR_ZERO2f = { 0 };
 #ifdef __cplusplus
 extern "C" {
 #endif  //__cplusplus
+
+/* "constructors" */
+TrVector2i tr_vec2i_new (int32 x, int32 y);
+TrVector2i tr_vec2i_newv (int32* v);
+TrVector2f tr_vec2f_new (float x, float y);
+TrVector2f tr_vec2f_newv (float* v);
 
 /* equals */
 bool tr_vec2i_equals (TrVector2i, TrVector2i);

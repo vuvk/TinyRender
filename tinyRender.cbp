@@ -12,12 +12,8 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-m32" />
 					<Add option="-g" />
 				</Compiler>
-				<Linker>
-					<Add option="-m32" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/tinyRender" prefix_auto="1" extension_auto="1" />
@@ -27,44 +23,64 @@
 				<Compiler>
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-O3" />
-					<Add option="-m32" />
 					<Add option="-Ofast -flto" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add option="-m32" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c11 -pipe" />
+			<Add option="-std=c11 -fms-extensions -pipe `sdl2-config --cflags`" />
 			<Add directory="include" />
 			<Add directory="src" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lm -lSDL2main -lSDL2" />
+			<Add option="-lm -lSDL2main -lSDL2" />
 			<Add directory="lib" />
 		</Linker>
 		<Unit filename="include/color.h" />
 		<Unit filename="include/defines.h" />
 		<Unit filename="include/draw.h" />
 		<Unit filename="include/fps.h" />
+		<Unit filename="include/libfixmath/fix16.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include/libfixmath/fix16.h" />
+		<Unit filename="include/libfixmath/fix16_exp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include/libfixmath/fix16_sqrt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include/libfixmath/fix16_str.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include/libfixmath/fix16_trig.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include/libfixmath/fix16_trig_sin_lut.h" />
+		<Unit filename="include/libfixmath/fixmath.h" />
+		<Unit filename="include/libfixmath/fract32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include/libfixmath/fract32.h" />
+		<Unit filename="include/libfixmath/int64.h" />
+		<Unit filename="include/libfixmath/uint32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include/libfixmath/uint32.h" />
 		<Unit filename="include/matrix.h" />
 		<Unit filename="include/render.h" />
 		<Unit filename="include/render_private.h" />
 		<Unit filename="include/texture.h" />
-		<Unit filename="include/threadpool/threadpool.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="include/threadpool/threadpool.h" />
-		<Unit filename="include/tinycthread/tinycthread.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="include/tinycthread/tinycthread.h" />
 		<Unit filename="include/types.h" />
 		<Unit filename="include/utils.h" />
-		<Unit filename="include/vector.h" />
+		<Unit filename="include/vectors/vector2.h" />
+		<Unit filename="include/vectors/vector3.h" />
+		<Unit filename="include/vectors/vector4.h" />
+		<Unit filename="include/vectors/vectors.h" />
 		<Unit filename="src/color.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -89,7 +105,16 @@
 		<Unit filename="src/utils.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/vector.c">
+		<Unit filename="src/vectors/vector2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/vectors/vector3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/vectors/vector4.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/vectors/vectors.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

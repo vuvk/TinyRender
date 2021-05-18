@@ -20,6 +20,29 @@
 
 #include "vectors/vector4.h"
 
+/* "constructors" */
+inline TrVector4i tr_vec4i_new (int32 x, int32 y, int32 z, int32 w)
+{
+    return (TrVector4i) { .v3 = tr_vec3i_new (x, y, z), .w = w };
+    //return (TrVector4i) { .x = x, .y = y, .z = z, .w = w };
+}
+
+inline TrVector4i tr_vec4i_newv (int32* v)
+{
+    return tr_vec4i_new (v[0], v[1], v[2], v[3]);
+}
+
+inline TrVector4f tr_vec4f_new (float x, float y, float z, float w)
+{
+    return (TrVector4f) { .v3 = tr_vec3f_new (x, y, z), .w = w };
+    //return (TrVector4f) { .x = x, .y = y, .z = z, .w = w };
+}
+
+inline TrVector4f tr_vec4f_newv (float* v)
+{
+    return tr_vec4f_new (v[0], v[1], v[2], v[3]);
+}
+
 /* equals */
 inline bool tr_vec4i_equals (TrVector4i vec1, TrVector4i vec2)
 {

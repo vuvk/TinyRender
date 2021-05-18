@@ -27,7 +27,7 @@
 
 #include "types.h"
 #include "color.h"
-#include "vector.h"
+#include "vectors/vectors.h"
 
 
 // fix math
@@ -81,7 +81,7 @@ void SwapShort(int16* a, int16* b);
 void SwapInt(int32* a, int32* b);
 void SwapLong(int64* a, int64* b);
 void SwapFloat(float* a, float* b);
-#define SWAP(A, B) _Generic ((A),                   \
+#define tr_swap(A, B) _Generic ((A),                   \
                              int16*  : SwapShort,   \
                              int32*  : SwapInt  ,   \
                              int64*  : SwapLong ,   \
@@ -89,29 +89,37 @@ void SwapFloat(float* a, float* b);
                              default : SwapPtr      \
                             )(A, B)
 
+// operator ==
+#define tr_equals(A,B) _Generic((A),    \
+                        TrVector2i : tr_vec2i_equals,   \
+                        TrVector2f : tr_vec2f_equals,   \
+                        TrVector3i : tr_vec3i_equals,   \
+                        TrVector3f : tr_vec3f_equals,   \
+                        TrVector4i : tr_vec4i_equals,   \
+                        TrVector4f : tr_vec4f_equals    \
+                        )(A,B)
+
 // operator '+'
-#define ADD(A, B) _Generic ((A),                         \
-                            SVector2f  : AddVector2f,    \
-                            SVector2i  : AddVector2i,    \
-                            SVector3f  : AddVector3f,    \
-                            SVector3s  : AddVector3s,    \
-                            SVector3i  : AddVector3i,    \
-                            SVector4f  : AddVector4f,    \
-                            SVector4i  : AddVector4i,    \
-                            RGBColor   : AddRGBColor,    \
-                            RGBColorf  : AddRGBColorf,   \
-                            RGBAColor  : AddRGBAColor,   \
-                            RGBAColorf : AddRGBAColorf   \
+#define tr_add(A, B) _Generic ((A),     \
+                        TrVector2i : tr_vec2i_add,    \
+                        TrVector2f : tr_vec2f_add,    \
+                        TrVector3i : tr_vec3i_add,    \
+                        TrVector3f : tr_vec3f_add,    \
+                        TrVector4i : tr_vec4i_add,    \
+                        TrVector4f : tr_vec4f_add,    \
+                        RGBColor   : AddRGBColor,    \
+                        RGBColorf  : AddRGBColorf,   \
+                        RGBAColor  : AddRGBAColor,   \
+                        RGBAColorf : AddRGBAColorf   \
                            )(A, B)
 // operator '-'
 #define SUB(A, B) _Generic ((A),                         \
-                            SVector2f  : SubVector2f,    \
-                            SVector2i  : SubVector2i,    \
-                            SVector3f  : SubVector3f,    \
-                            SVector3s  : SubVector3s,    \
-                            SVector3i  : SubVector3i,    \
-                            SVector4f  : SubVector4f,    \
-                            SVector4i  : SubVector4i,    \
+                            TrVector2f  : SubVector2f,    \
+                            TrVector2i  : SubVector2i,    \
+                            TrVector3f  : SubVector3f,    \
+                            TrVector3i  : SubVector3i,    \
+                            TrVector4f  : SubVector4f,    \
+                            TrVector4i  : SubVector4i,    \
                             RGBColor   : SubRGBColor,    \
                             RGBColorf  : SubRGBColorf,   \
                             RGBAColor  : SubRGBAColor,   \
@@ -119,13 +127,12 @@ void SwapFloat(float* a, float* b);
                            )(A, B)
 // operator '*'
 #define MUL(A, B) _Generic ((A),                           \
-                             SVector2f  : MultVector2f,     \
-                             SVector2i  : MultVector2i,     \
-                             SVector3f  : MultVector3f,     \
-                             SVector3s  : MultVector3s,     \
-                             SVector3i  : MultVector3i,     \
-                             SVector4f  : MultVector4f,     \
-                             SVector4i  : MultVector4i,     \
+                             TrVector2f  : MultVector2f,     \
+                             TrVector2i  : MultVector2i,     \
+                             TrVector3f  : MultVector3f,     \
+                             TrVector3i  : MultVector3i,     \
+                             TrVector4f  : MultVector4f,     \
+                             TrVector4i  : MultVector4i,     \
                              RGBColor   : MultRGBColor,     \
                              RGBColorf  : MultRGBColorf,    \
                              RGBAColor  : MultRGBAColor,    \
@@ -133,13 +140,12 @@ void SwapFloat(float* a, float* b);
                              )(A, B)
 // operator '/'
 #define DIV(A, B) _Generic ((A),                          \
-                            SVector2f  : DivVector2f,     \
-                            SVector2i  : DivVector2i,     \
-                            SVector3f  : DivVector3f,     \
-                            SVector3s  : DivVector3s,     \
-                            SVector3i  : DivVector3i,     \
-                            SVector4f  : DivVector4f,     \
-                            SVector4i  : DivVector4i,     \
+                            TrVector2f  : DivVector2f,     \
+                            TrVector2i  : DivVector2i,     \
+                            TrVector3f  : DivVector3f,     \
+                            TrVector3i  : DivVector3i,     \
+                            TrVector4f  : DivVector4f,     \
+                            TrVector4i  : DivVector4i,     \
                             RGBColor   : DivRGBColor,     \
                             RGBColorf  : DivRGBColorf,    \
                             RGBAColor  : DivRGBAColor,    \

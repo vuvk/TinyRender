@@ -21,7 +21,8 @@
 #ifndef __MATRIX_H_INCLUDED
 #define __MATRIX_H_INCLUDED
 
-#include "vector.h"
+#include "vectors/vector3.h"
+#include "vectors/vector4.h"
 
 typedef float TMatrix3x3[9];
 typedef float TMatrix4x4[16];
@@ -37,13 +38,13 @@ void LoadIdentity_M4x4(TMatrix4x4 matrix);
 
 void Multiplyf_Scalar(TMatrix4x4 matrix, float scalar);
 void Multiplyf_M4x4(TMatrix4x4 dst, const TMatrix4x4 src1, const TMatrix4x4 src2);
-SVector4f Multiplyf_M4x4_V4f(const TMatrix4x4 matrix, const SVector4f vec);
+TrVector4f Multiplyf_M4x4_V4f(const TMatrix4x4 matrix, const TrVector4f vec);
 
 void Translatef_M4x4(TMatrix4x4 matrix, float x, float y, float z);
-void Translatev_M4x4(TMatrix4x4 matrix, SVector3f translate);
+void Translatev_M4x4(TMatrix4x4 matrix, TrVector3f translate);
 
 void Scalef_M4x4(TMatrix4x4 matrix, float x, float y, float z);
-void Scalev_M4x4(TMatrix4x4 matrix, SVector3f scale);
+void Scalev_M4x4(TMatrix4x4 matrix, TrVector3f scale);
 
 void Rotatef_M4x4(TMatrix4x4 matrix, float angle, float x, float y, float z);
 void RotateRxf_M4x4(TMatrix4x4 matrix, float angle);
@@ -56,7 +57,7 @@ bool Orthof_M4x4(TMatrix4x4 result, const float left, const float right, const f
 bool Frustumf_M4x4(TMatrix4x4 result, const float left, const float right, const float bottom, const float top, const float zNear, const float zFar);
 bool Perspectivef_M4x4(TMatrix4x4 result, const float fovy, const float aspect, const float zNear, const float zFar);
 void LookAtf_M4x4(TMatrix4x4 result, const float eyeX, const float eyeY, const float eyeZ, const float centerX, const float centerY, const float centerZ, const float upX, const float upY, const float upZ);
-void LookAtv_M4x4(TMatrix4x4 result, const SVector3f eye, const SVector3f center, const SVector3f up);
+void LookAtv_M4x4(TMatrix4x4 result, const TrVector3f eye, const TrVector3f center, const TrVector3f up);
 
 #ifdef __cplusplus
 }

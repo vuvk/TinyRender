@@ -22,47 +22,53 @@
 
 #include "fps.h"
 
-double deltaTime;
-int fps;
+static double delta_time;
+static int fps;
 
-static unsigned int curTime = 0, prevTime = 0;
-static int accumulatedFPS = 0, numFrames = 0;
-static double framerateCount = 0;
+static unsigned int cur_time = 0, prevTime = 0;
+static int accumulated_fps = 0, num_frames = 0;
+static double framerate_count = 0;
 
-double CalcFPS ()
+double tr_update_time ()
 {
-	prevTime = curTime;
-	curTime = SDL_GetTicks();
-	//deltaTime = (curTime - prevTime) / 1000.0;
-	deltaTime = (curTime - prevTime) * 0.001;
-	int intFPS = (int)(1.0 / deltaTime);
-	framerateCount += deltaTime;
-	accumulatedFPS += intFPS;
-	++numFrames;
+	prevTime = cur_time;
+	cur_time = SDL_GetTicks();
+	//delta_time = (cur_time - prevTime) / 1000.0;
+	delta_time = (cur_time - prevTime) * 0.001;
+	int int_fps = (int)(1.0 / delta_time);
+	framerate_count += delta_time;
+	accumulated_fps += int_fps;
+	++num_frames;
 
-	//if (numFrames > 60)
-	if (framerateCount >= 0.5)
+	//if (num_frames > 60)
+	if (framerate_count >= 0.5)
     {
-        if (numFrames != 0.0)
-            fps = accumulatedFPS / numFrames;
+        if (num_frames != 0.0)
+        {
+            fps = accumulated_fps / num_frames;
+        }
         else
-            fps = accumulatedFPS;
+        {   
+            fps = accumulated_fps;
+        }
 
         if (fps >= 1000 || fps < 0)
+        {
             fps  = 1000;
+        }
 
-		numFrames = 0;
-		accumulatedFPS = 0;
+		num_frames = 0;
+		accumulated_fps = 0;
 
-		framerateCount -= 0.5;
+		framerate_count -= 0.5;
 	}
 
 /*
 	//Delay if we updated faster than maxFPS
 	if (fps > MAX_FPS)
     {
-        if (deltaTime < maxTicks)
-            SDL_Delay((int)(maxTicks - deltaTime));
+        if (delta_time < maxTicks)
+            SDL_Delay((int)(maxTicks - delta_time));
         else
             SDL_Delay(1);
     }
@@ -73,7 +79,16 @@ double CalcFPS ()
         SDL_Delay(1);
     */
 
-	return deltaTime;
+	return delta_time;
 }
 
+double tr_get_delta_time ()
+{
+    return delta_time;
+}
+
+int tr_get_fps ()
+{
+    return fps;
+}
 
