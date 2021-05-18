@@ -45,6 +45,8 @@ main.o: src/main.c
 	$(CC) $(INC) $(CFLAGS) src/main.c
 matrix.o: src/matrix.c
 	$(CC) $(INC) $(CFLAGS) src/matrix.c
+frustum.o: src/frustum.c
+	$(CC) $(INC) $(CFLAGS) src/frustum.c
 render.o: src/render.c
 	$(CC) $(INC) $(CFLAGS) src/render.c
 texture.o: src/texture.c

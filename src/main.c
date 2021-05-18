@@ -17,6 +17,7 @@
 */
 
 // https://masandilov.ru/opengl/opengl-frustum
+// http://opengl-tutorial.blogspot.com/p/3.html
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -95,8 +96,6 @@ int main(int args, char** argv)
         //trLine2i(100, 100, 150, 250, RGB_TO_COLOR(255, 10, 100));
 
         //trQuadColor2i(500, 300, 700, 500, 600, 590, 400, 500, RGB_TO_COLOR(100, 100, 100));
-
-
 
         // 2D рисование многоцветное
         //trTriangleTricolor2i(10, 10, 790, 10, 10, 590, RGB_TO_COLOR(255, 0, 0), RGB_TO_COLOR(0, 255, 0), RGB_TO_COLOR(0, 0, 255));

@@ -256,7 +256,8 @@ static void DrawHorLineBicolor(int32 x0, int32 x1, int32 y, uint32 color0, uint3
 
 static void DrawHorLineTextured(int32 x0, int32 x1, int32 y, TrVector2f uv0, TrVector2f uv1, STexture* texture, void* pixels)
 {
-    if (y < 0 || y > trHeight - 1)
+    if (y < 0 || y > trHeight - 1 ||
+        !texture || !texture->pixels)
         return;
 
     LIMIT(x0, 0, trWidth - 1);
@@ -1075,7 +1076,7 @@ void ClearPixels(uint32 color, int w, int h, void* pixels)
 
 void PutPixel (int32 x, int32 y, uint32 color, void* pixels)
 {
-	if (x < 0 || y < 0 || x >= trWidth || y >= trHeight)
+    if (x < 0 || y < 0 || x >= trWidth || y >= trHeight)
         return;
 
     *(uint32*)((uint8*)pixels + y * trPitch + x * trBpp) = color;
@@ -1084,28 +1085,28 @@ void PutPixel (int32 x, int32 y, uint32 color, void* pixels)
 uint32 GetPixel_(uint32 x, uint32 y, void* pixels)
 {
 #ifdef OLD_CODE
-	int bpp = frameBuffer->format->BytesPerPixel;
-	uint8* p = (uint8*)frameBuffer->pixels + y * frameBuffer->pitch + x * bpp;
-	switch(bpp)
-	{
-		case 1:
-			return* p;
-			break;
-		case 2:
-			return *(Uint16*)p;
-			break;
-		case 3:
-			if(SDL_BYTEORDER == SDL_BIG_ENDIAN)
-				return p[0] << 16 | p[1] << 8 | p[2];
-			else
-				return p[0] | p[1] << 8 | p[2] << 16;
-			break;
-		case 4:
-			return *(Uint32*)p;
-			break;
-		default:
-			return 0;
-	}
+    int bpp = frameBuffer->format->BytesPerPixel;
+    uint8* p = (uint8*)frameBuffer->pixels + y * frameBuffer->pitch + x * bpp;
+    switch(bpp)
+    {
+        case 1:
+            return* p;
+            break;
+        case 2:
+            return *(Uint16*)p;
+            break;
+        case 3:
+            if(SDL_BYTEORDER == SDL_BIG_ENDIAN)
+                return p[0] << 16 | p[1] << 8 | p[2];
+            else
+                return p[0] | p[1] << 8 | p[2] << 16;
+            break;
+        case 4:
+            return *(Uint32*)p;
+            break;
+        default:
+            return 0;
+    }
 #endif
 
     return *(uint32*)((uint8*)pixels + y * trPitch + x * trBpp);

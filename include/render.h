@@ -23,6 +23,7 @@
 
 #include "types.h"
 #include "vectors/vectors.h"
+#include "matrix.h"
 #include "texture.h"
 //#include "threadpool.h"
 //#include "tinycthread.h"
@@ -44,8 +45,9 @@ void trClear();
 void trSwapBuffers();
 
 /* MATRICES */
-void trMatrixMode(uint8 mode);
+void trMatrixMode(int mode);
 void trLoadIdentity();
+void tr_get_matrix (int mode, TMatrix4x4 out);
 bool trOrthof(const float left, const float right, const float bottom, const float top, const float zNear, const float zFar);
 bool trFrustumf(const float left, const float right, const float bottom, const float top, const float zNear, const float zFar);
 bool trPerspectivef(const float fovy, const float aspect, const float zNear, const float zFar);

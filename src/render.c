@@ -29,6 +29,7 @@
 
 #include "utils.h"
 #include "matrix.h"
+#include "frustum.h"
 #include "draw.h"
 #include "render.h"
 #include "render_private.h"
@@ -140,16 +141,30 @@ void trSwapBuffers()
 
 
 /* MATRIX */
-void trMatrixMode(uint8 mode)
+void trMatrixMode(int mode)
 {
     switch (mode)
     {
-        case 1 :
+        case PROJECTION_MATRIX :
             curMatrix = (float*)proj;
             break;
 
-        case 2 :
+        case MODELVIEW_MATRIX :
             curMatrix = (float*)modl;
+            break;
+    }
+}
+
+void tr_get_matrix (int mode, TMatrix4x4 out)
+{
+    switch (mode)
+    {
+        case PROJECTION_MATRIX :
+            memcpy (out, proj, sizeof (TMatrix4x4));
+            break;
+
+        case MODELVIEW_MATRIX :
+            memcpy (out, modl, sizeof (TMatrix4x4));
             break;
     }
 }
@@ -209,6 +224,8 @@ inline void trTransformsPrepare()
 {
     //Multiplyf_M4x4(transform, modl, proj);
     Multiplyf_M4x4(transform, proj, modl);
+
+    tr_frustum_update ();
 }
 
 /* TRANSFORMATIONS */
@@ -261,20 +278,30 @@ static bool PointPrepare(TrVector3f v3f, TrVector2i* out)
     v4f = Multiplyf_M4x4_V4f(transform, v4f);
     v3f = tr_vec4f_to_vec3f (v4f);
 
+    // точка за плоскостями ближней и дальней
+    if (v3f.z < trNearPlane || v3f.z > trFarPlane)
+    {
+        return false;
+    }
+
+    // точка не в видимости пирамиды
+    if (!tr_frustum_has_point (v3f))
+    {
+        return false;
+    }
+
     TrVector2f v2f = tr_vec3f_to_vec2f (v3f);
 
     int x0 = (int32)( v2f.x * trHalfWidth  + trHalfWidth);
     int y0 = (int32)(-v2f.y * trHalfHeight + trHalfHeight); // оси перевернуть!
     *out = tr_vec2i_new (x0, y0);
 
-    // точка за плоскостями ближней и дальней
-    if (v3f.z < trNearPlane || v3f.z > trFarPlane)
-        return false;
-
     // точка не попала на экран
-    if ((v2f.x < -1.0) || (v2f.x > 1.0) ||
-        (v2f.y < -1.0) || (v2f.y > 1.0))
+    if (v2f.x < -1.0f || v2f.x > 1.0f ||
+        v2f.y < -1.0f || v2f.y > 1.0f)
+    {    
         return false;
+    }
 
     return true;
 }
